@@ -1,0 +1,1396 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>中级软考笔记 | 燃烧的炸弹猫</title><meta name="author" content="燃烧的炸弹猫"><meta name="copyright" content="燃烧的炸弹猫"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="1、网络互联路由器工作原理   考选择题（考概念） 路由表（考点）   ICMP协议（ping命令就是遵循了ICMP协议）（重点）   0、3、5、11类型要背（考点：给你一段描述或者功能选择是那个类型的）   ARP协议原理（重点）  ARP是通过IP去寻找我们的Mac地址   ARP协议原理分析图（很重要）         A到C；C到D；D到B的网络通信时，源Mac地址和目的Mac地址是多少">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中级软考笔记">
+<meta property="og:url" content="http://example.com/posts/1.html">
+<meta property="og:site_name" content="燃烧的炸弹猫">
+<meta property="og:description" content="1、网络互联路由器工作原理   考选择题（考概念） 路由表（考点）   ICMP协议（ping命令就是遵循了ICMP协议）（重点）   0、3、5、11类型要背（考点：给你一段描述或者功能选择是那个类型的）   ARP协议原理（重点）  ARP是通过IP去寻找我们的Mac地址   ARP协议原理分析图（很重要）         A到C；C到D；D到B的网络通信时，源Mac地址和目的Mac地址是多少">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/22/ktGqYmEt.jpg">
+<meta property="article:published_time" content="2023-06-23T18:46:00.000Z">
+<meta property="article:modified_time" content="2023-06-24T06:14:38.985Z">
+<meta property="article:author" content="燃烧的炸弹猫">
+<meta property="article:tag" content="”博客,知识博客“">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.imgtp.com/2023/06/22/ktGqYmEt.jpg"><link rel="shortcut icon" href="https://img1.imgtp.com/2023/06/22/ExfAMpG5.jpg"><link rel="canonical" href="http://example.com/posts/1.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '中级软考笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-24 14:14:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.imgtp.com/2023/06/22/ExfAMpG5.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img1.imgtp.com/2023/06/22/ktGqYmEt.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="燃烧的炸弹猫"><span class="site-name">燃烧的炸弹猫</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">中级软考笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-23T18:46:00.000Z" title="发表于 2023-06-24 02:46:00">2023-06-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-24T06:14:38.985Z" title="更新于 2023-06-24 14:14:38">2023-06-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">11.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>36分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="中级软考笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="1、网络互联"><a href="#1、网络互联" class="headerlink" title="1、网络互联"></a>1、网络互联</h2><h3 id="路由器工作原理"><a href="#路由器工作原理" class="headerlink" title="路由器工作原理"></a>路由器工作原理</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230312233658302.png" alt="image-20230312233658302"></p>
+<blockquote>
+<ul>
+<li>考选择题（考概念）</li>
+<li>路由表（考点）</li>
+</ul>
+</blockquote>
+<h3 id="ICMP协议（ping命令就是遵循了ICMP协议）（重点）"><a href="#ICMP协议（ping命令就是遵循了ICMP协议）（重点）" class="headerlink" title="ICMP协议（ping命令就是遵循了ICMP协议）（重点）"></a>ICMP协议（ping命令就是遵循了ICMP协议）（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230312234931392.png" alt="image-20230312234931392"></p>
+<blockquote>
+<ul>
+<li><strong><code>0、3、5、11类型要背（考点：给你一段描述或者功能选择是那个类型的）</code></strong></li>
+</ul>
+</blockquote>
+<h3 id="ARP协议原理（重点）"><a href="#ARP协议原理（重点）" class="headerlink" title="ARP协议原理（重点）"></a>ARP协议原理（<code>重点</code>）</h3><blockquote>
+<ul>
+<li><strong><code>ARP是通过IP去寻找我们的Mac地址</code></strong></li>
+</ul>
+</blockquote>
+<p><strong>ARP协议原理分析图</strong>（很重要）</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230313_171642.jpg" alt="IMG_20230313_171642"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230313_171819.jpg" alt="IMG_20230313_171819"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230313_171847.jpg" alt="IMG_20230313_171847"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230313_171855.jpg" alt="IMG_20230313_171855"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230313_171911.jpg" alt="IMG_20230313_171911"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230313_171931.jpg" alt="IMG_20230313_171931"></p>
+<blockquote>
+<ul>
+<li><strong><code>A到C；C到D；D到B的网络通信时，源Mac地址和目的Mac地址是多少（考点）</code></strong></li>
+</ul>
+</blockquote>
+<h3 id="逆向ARP协议（RARP协议）"><a href="#逆向ARP协议（RARP协议）" class="headerlink" title="逆向ARP协议（RARP协议）"></a>逆向ARP协议（RARP协议）</h3><blockquote>
+<ul>
+<li>通过Mac地址去寻找我们的IP</li>
+</ul>
+</blockquote>
+<p><strong><code>重点（ARP：通过IP地址寻找MAC地址）</code></strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230313174714715.png" alt="image-20230313174714715"></p>
+<blockquote>
+<ul>
+<li>无盘工作站指网吧</li>
+</ul>
+</blockquote>
+<h3 id="IPv4报文结构"><a href="#IPv4报文结构" class="headerlink" title="IPv4报文结构"></a>IPv4报文结构</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230313193923459.png" alt="image-20230313193923459"></p>
+<blockquote>
+<ul>
+<li><p>标识符（考点）</p>
+<ul>
+<li>考点1：中间节点只负责分片，然后到达我们的目的主机，再进行重组。</li>
+<li>考点2：分片数据加上原始的20字节IP首部</li>
+</ul>
+</li>
+<li><p>计算真正的偏移量（考点）</p>
+<p>在计算偏移量的时候，需要将计算结果除以8，得到的值才是真正的偏移量。</p>
+</li>
+<li><p>TTL值用于防止数据包转发环路跳数限制字段</p>
+</li>
+<li><p>TTL字段对应</p>
+</li>
+<li><p>IP报头长度范围为20到60字节之间</p>
+<p>如果题中没有特殊的说明，我们都按20字节最小的长度来算</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>现在的网络通信，只有两种IP网络，一个IPv4和一个IPv6</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>问题：如何判断或者说如何表示它内层是ARP还是IP</p>
+<p>2层帧头中有一个字段叫type类型0800是我们的IP，0806是我们的ARP</p>
+</blockquote>
+<h3 id="路由协议基本概念（重点）"><a href="#路由协议基本概念（重点）" class="headerlink" title="路由协议基本概念（重点）"></a>路由协议基本概念（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230315233541119.png" alt="image-20230315233541119"></p>
+<blockquote>
+<p>二层的网路在相同的网段或者说在同一个广播域，交换机互联默认情况下是在相同的一个网段或者在相同的vlan</p>
+<p>不同网段之间的通信，我们就需要用到路由协议，它是属于三层网络层 </p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230315233435490.png" alt="image-20230315233435490"></p>
+<blockquote>
+<p>考点：考查路由协议数值（背），选择那个优先级更小</p>
+<p><strong>路由协议数值越小，路由协议优先级越高</strong></p>
+</blockquote>
+<h3 id="VLAN间通信"><a href="#VLAN间通信" class="headerlink" title="VLAN间通信"></a>VLAN间通信</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230316002601542.png" alt="image-20230316002601542"></p>
+<blockquote>
+<p>默认情况下交换机支持二层通信，要想在三层通信，需要配置VLANIF接口</p>
+</blockquote>
+<h3 id="静态路由与默认路由（考查重点）"><a href="#静态路由与默认路由（考查重点）" class="headerlink" title="静态路由与默认路由（考查重点）"></a>静态路由与默认路由（<code>考查重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230315235138294.png" alt="image-20230315235138294"></p>
+<blockquote>
+<p>ip route-static：ip静态路由</p>
+<p>本地出接口是g0&#x2F;0&#x2F;0</p>
+<p>下一跳地址是192.168.1.2</p>
+<p>考点：在考试中，配置形式一般为：<strong>目标网段 目标网段掩码 下一跳地址</strong></p>
+<p><strong>注：下一跳地址可以替换为本地出接口，不过在考试中不建议</strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230316004039016.png" alt="image-20230316004039016"></p>
+<blockquote>
+<p>考点：考试中考查这块的考点一般都是基于这个模型进行考查，可能会把路由器换成一台防火墙或者或者所有的网络都是路由器</p>
+<p>从下往上走是默认路由，从上往下走是静态路由</p>
+</blockquote>
+<h3 id="路由迭代"><a href="#路由迭代" class="headerlink" title="路由迭代"></a>路由迭代</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230316170810773.png" alt="image-20230316170810773"></p>
+<blockquote>
+<p>R表示迭代或者递归，迭代的意思是我要到达目标网段的下一跳地址，我还要查询一次到达下一跳地址有没有直连路由。</p>
+<p>D表示路由生效</p>
+<p>考点：给你一张路由表的图，里面有迭代路由和没有经过迭代查询的路由，问对于这个网络中它有几条路由，比如上面的路由表就只有一条路由</p>
+<p>迭代出来的路由都和非迭代的路由都属于一条路由（考点）</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230316171331553.png" alt="image-20230316171331553"></p>
+<blockquote>
+<p>为什么下一跳地址是192.168.1.1是因为写了出接口g0&#x2F;0&#x2F;0，它的下一跳地址就是本地这个接口的ip地址（192.168.1.1）</p>
+</blockquote>
+<h3 id="浮动路由与等价路由"><a href="#浮动路由与等价路由" class="headerlink" title="浮动路由与等价路由"></a>浮动路由与等价路由</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230316172215063.png" alt="image-20230316172215063"></p>
+<blockquote>
+<p>浮动路由：其中一边路径坏了，使用另一边路径</p>
+<p>preference：优先级</p>
+<p>对于静态路由，它的路由优先级默认是60，比如上面的第一条静态路由的路由优先级就是60，第二条是100，数值越小的，优先级越高，那么第一条的优先级最高。</p>
+<p>第一条的优先级最高，优先走上面条路径1.2，一旦上面条路径出现问题，则我们选择走下面条路径，这个叫浮动路由</p>
+<p>考点：浮动路由常考</p>
+</blockquote>
+<blockquote>
+<p>等价路由：我不想让它走一条路径，我想让它每条路径都分担一些数据</p>
+<p>数据平分传输也叫负载</p>
+</blockquote>
+<h3 id="使用BFD工具实现静态路由的远端监控"><a href="#使用BFD工具实现静态路由的远端监控" class="headerlink" title="使用BFD工具实现静态路由的远端监控"></a>使用BFD工具实现静态路由的远端监控</h3><blockquote>
+<p>双向链路的快速检测</p>
+</blockquote>
+<h3 id="RIP路由协议"><a href="#RIP路由协议" class="headerlink" title="RIP路由协议"></a>RIP路由协议</h3><blockquote>
+<p>动态路由涉及到4种协议：</p>
+<ul>
+<li>RIP协议</li>
+<li>OSPF协议</li>
+<li>IS-IS</li>
+<li>BGP</li>
+</ul>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230316195535139.png" alt="image-20230316195535139"></p>
+<blockquote>
+<p>考点：RIP概念</p>
+<ul>
+<li>使用的路由算法是Bellman-Ford（贝尔曼-福特）</li>
+<li>报文封装在传输层</li>
+<li>基于UDP的520端口发送消息</li>
+<li>路由协议优先级为100（华为的标准）</li>
+<li>经过节点最多不能超过15跳，cos值不能超过16</li>
+<li>注：是最多<strong>经过</strong>15跳，过一个节点才叫经过，不是一共最多15跳，比如：网路直径是15跳，假如第一个节点是路由器，它是经过了多少跳？它经过了14跳，那么它的最大直径是16，因为经过的节点最多不超过15跳（考查过）</li>
+<li>每个路由器只会学到邻居路由器的信息，不知道整个网路的拓扑结构</li>
+<li>每次路由更新最多承载25条路由（路由更新属于路由条目传递的层面），超过25条路由再次更新</li>
+</ul>
+<p><strong><code>考点：RIPv1与RIPv2概念（常考）</code></strong></p>
+<p><strong><code>RIPv1与RIPv2都具有的特性</code></strong></p>
+<ul>
+<li>都具备防环机制</li>
+<li>都使用UDP 520端口承载发送报文</li>
+<li>都采用相同路由算法</li>
+</ul>
+</blockquote>
+<h3 id="宣告方式"><a href="#宣告方式" class="headerlink" title="宣告方式"></a>宣告方式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230316202714821.png" alt="image-20230316202714821"></p>
+<blockquote>
+<p>network表示在这个接口进行network宣告，宣告的其中一个意思是在这个接口上启用RIP路由协议，还有一个意思是把这个接口所在的网段通告出去，通告出去的意思是让其他设备知道这边有个网段</p>
+<p>考点：v1版本支持主类，v2版本支持无类，是指在我们的路由表中可以存在无类的这个路由，但是对于我们去配置的时候，<strong>无论是v1版本还是v2版本都只能宣告主类</strong>，比如：v1版本宣告了12.0.0.0，那么最后出现的路由表就是12.0.0.0，对于v2版本宣告12.0.0.0，那么最后出现的路由表就是12.1.1.0</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320202136153.png" alt="image-20230320202136153"></p>
+<p>考点：上述视图中：10.1.1.0和10.1.2.0站两条路由需要几条命令宣告出去？不管是10.1.1.0还是10.1.2.0，主类都是10.0.0.0，所以只需配置一条命令network 10.0.0.0即可</p>
+</blockquote>
+<h3 id="RIP防环机制和RIP路由计时器（重点）"><a href="#RIP防环机制和RIP路由计时器（重点）" class="headerlink" title="RIP防环机制和RIP路由计时器（重点）"></a>RIP防环机制和RIP路由计时器（<code>重点</code>）</h3><h3 id=""><a href="#" class="headerlink" title=""></a><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230316205148848.png" alt="image-20230316205148848"></h3><h3 id="OSPF路由协议（重点）"><a href="#OSPF路由协议（重点）" class="headerlink" title="OSPF路由协议（重点）"></a>OSPF路由协议（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230317182707393.png" alt="image-20230317182707393"></p>
+<blockquote>
+<p>考点：根据链路的带宽计算路径开销，如何计算路径开销？</p>
+<p>​            用10的八次方除以我们的接口的带宽得出的值就是路径开销（10              </p>
+<p>​            的八次方是一个固定值）</p>
+<p><strong><code>OSPF协议号：89</code></strong></p>
+<p><strong><code>考点：通过发送hello报文建立邻居关系，使用DBD报文描述需要同步的路由信息，使用LSR请求对方发送路由信息，使用LSU发送路由信息，并使用LSAck进行信息的确认，考查这些报文有什么用途。</code></strong></p>
+<p>网路收敛表示网络稳定，互相的路由条目都学习到了</p>
+<p><strong><code>考点：P2P和广播类型的网络，周期为10s，其他网络类型，周期为30s</code></strong></p>
+<p>OSPF的cost计算：带宽参考值  &#x2F; 接口带宽 ，注意：带宽参考值的单位是b&#x2F;s ，注意单位的换算</p>
+<p><strong><code>在广播网络中选举DR和BDR是为了减少LSA的泛红</code></strong></p>
+<p><strong><code>OSPF收敛比RIP快</code></strong></p>
+</blockquote>
+<h3 id="区域类型（重点）"><a href="#区域类型（重点）" class="headerlink" title="区域类型（重点）"></a>区域类型（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230317185221357.png" alt="image-20230317185221357"></p>
+<blockquote>
+<p><strong><code>虚链路解决骨干分离，非骨干区域相互连接问题</code></strong></p>
+<p><strong><code>考点：配置一个网路的条件</code></strong></p>
+<ul>
+<li>只能存在一个骨干区域</li>
+<li>非骨干区域必须和骨干区域相连</li>
+</ul>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230317_190240.jpg" alt="IMG_20230317_190240"></p>
+<h3 id="OSPF设备类型（重点）"><a href="#OSPF设备类型（重点）" class="headerlink" title="OSPF设备类型（重点）"></a>OSPF设备类型（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230317191533515.png" alt="image-20230317191533515"></p>
+<blockquote>
+<p><strong><code>ABR：一个路由器的一边是骨干区域，另一边是非骨干区域，则将该路由器设为ABR，也叫区域边界路由器</code></strong></p>
+<p><strong><code>ASBR：一边是OSPF路由域，另一边是其他路由域，则该路由器设为ASBR，也叫自治域边界路由器</code></strong></p>
+<p><strong><code>ASBR设备通常让左右这个网络互通，做一个双向的路由引入</code></strong></p>
+<p>自治域：运行了相同路由协议的，比如一边运行了OSPF，另一边网络运行了rip，我们认为它们俩不属于一个自治域</p>
+</blockquote>
+<h3 id="router-ID选举"><a href="#router-ID选举" class="headerlink" title="router ID选举"></a>router ID选举</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230317203555781.png" alt="image-20230317203555781"></p>
+<blockquote>
+<p>每台设备都需要有一个自己的名字，这个名字叫router ID，必须存在的</p>
+</blockquote>
+<blockquote>
+<p>loopback接口（环回接口）是一个虚拟的接口（逻辑上的接口），它不会被关闭，在路由器和交换机上看不到这个接口，loopback接口在我们的实际网路中会连接一些链路，起到一个稳定性的作用和模拟一些网段</p>
+<ul>
+<li>假如说在一个路由器上配置了两个环回接口，一个是192.168.1.1，另一个是192.168.1.2，会选择loopback接口ip最大的作为router ID</li>
+</ul>
+<p>什么叫活跃的物理接口：第一个前提是它配了ip地址，第二个前提是接口有相应的物理连接</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230317_195942.jpg" alt="IMG_20230317_195942"></p>
+</blockquote>
+<blockquote>
+<p>考点：运行OSPF这个协议的路由器不能有相同的router ID，不能有冲突，否则不能建立邻居<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230317_202019.jpg" alt="IMG_20230317_202019"></p>
+</blockquote>
+<h3 id="DR和BDR的选举（重点）"><a href="#DR和BDR的选举（重点）" class="headerlink" title="DR和BDR的选举（重点）"></a>DR和BDR的选举（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230317204117994.png" alt="image-20230317204117994"></p>
+<blockquote>
+<p>DR和BDR我们称之为指定路由器和备份的指定路由器</p>
+<p><strong><code>只在广播网络类型中需要选举DR和BDR</code></strong></p>
+<p>优先级为零，则证明这台设备永远不可能成为我们的DR和BDR</p>
+<p><strong><code>DR和BDR选举是为了防止广播网络中他们互相建立邻居互相传递信息时发送大量的hello报文，让其他的成员都跟DR和BDR建立邻居，其他成员之间不建立邻居，这样就解决发送大量hello报文的问题。</code></strong></p>
+<p>**<code>选举DR指定路由器，指定路由器的作用是减少LSA的发送</code>**。</p>
+</blockquote>
+<p><strong><code>重点</code></strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230317210201337.png" alt="image-20230317210201337"></p>
+<blockquote>
+<p><strong><code>注意：必须在同一个广播网络中选举DR和BDR，跨网段不是同一个广播网络</code></strong></p>
+<p><strong><code>有优先级，以优先级为主选举DR和BDR</code></strong></p>
+</blockquote>
+<h3 id="OSPF的LSA类型与特殊区域"><a href="#OSPF的LSA类型与特殊区域" class="headerlink" title="OSPF的LSA类型与特殊区域"></a>OSPF的LSA类型与特殊区域</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230318180944135.png" alt="image-20230318180944135"></p>
+<blockquote>
+<p><strong><code>考点：主要考查LSA-1、LSA-2、LSA-3、LSA-5</code></strong></p>
+<p>LSA承载了进行路由计算的一些信息，换言之理解就是相对于每个区域都由设备分开了，那LSA就相对于通行证，不同区域使用不同的通行证</p>
+<p>LSA-1：在相同区域内进行泛红式传输，用于告诉对方自己相关的路由信息，只要运行OSPF的，一定会发送LSA-1，LSA-1只会在自己的区域内进行传递，其他区域内部也会互相发送LSA-1（基本的路由信息），上面视图其他区域的LSA-1只是没有标注出来</p>
+<p>LSA-2：只用于DR和BDR和成员之间互相去记录相关信息的，在点到点网路中没有LSA-2</p>
+<p>LSA-3：两台设备之间的信息可以通过LSA-3发送到另外一个区域，产生LSA-3的设备一定是ABR设备</p>
+<p>LSA-5：在ASBR设备上引入外部的路由，在ASBR设备上会产生LSA-5，LSA-5不受区域的限制，在普通区域中都可以传输，在stub区域不能传输</p>
+<p>LSA-4：作为LSA-5的辅助，LSA-4不必去深究</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230318192131424.png" alt="image-20230318192131424"></p>
+<blockquote>
+<p><strong><code>考点：只考查stub（末节区域）和NSSA（非纯末节区域）这两种特殊区域类型</code></strong></p>
+<p>在stub区域内，LSA-5无法传输，那么设备将无法上网（不能连外网），信息无法进入stub区域，没有办法计算路由，就不能上网，这个时候，内部的stub区域的ABR设备会下发一条默认路由，默认路由可以节省我们的路由表，它可以合外界通信，stub区域只需要一条默认路由就可以上网了，即解决了上网的问题，还可以减少LSA-5进入stub区域，减少路由器计算的工作量</p>
+<p>stub区域不能自己连接外网</p>
+<p>NSSA区域解决了stub区域不能连接外网的问题，还可以防止外部的LSA-5进入stub区域</p>
+<p><strong>注意：特殊区域只能配置在非骨干区域中</strong></p>
+</blockquote>
+<h3 id="OSPF宣告方式"><a href="#OSPF宣告方式" class="headerlink" title="OSPF宣告方式"></a>OSPF宣告方式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230318192400726.png" alt="image-20230318192400726"></p>
+<blockquote>
+<p>掩码用于判断两个ip地址是否属于同一网段，反掩码（通配符掩码）的作用是标记范围的，比如上面视图0.0.0.255 表示反掩码，其中0.0.0是固定的，255是不固定的，也就是0到255范围内的ip地址都被宣告，都启用了OSPF</p>
+<p>传统方式计算反掩码：192.168.1.1&#x2F;29的掩码（非正常掩码）是255.255.255.248，反掩码是255.255.255.255减去255.255.255.248等于0.0.0.7</p>
+<p>我们采用精确宣告的方式，只宣告一个地址，书写格式为：network 精确的地址 0.0.0.0，比如：network 192.168.1.1 0.0.0.0 ，只宣告了192.168.1.1这一个ip地址，这种配置方式可以替换第三行的配置，我们采取这种方式，就不用采取传统方式，不管是正常掩码还是非正常掩码，都只宣告一个地址，反掩码都写成0.0.0.0，避免出错。</p>
+<p>考点：在OSPF中，对于宣告正常或者非正常掩码，一般采用精确宣告，避免了计算反掩码</p>
+<p>考点：OSPF宣告方式的配置</p>
+</blockquote>
+<h3 id="IS-IS路由协议（重点：掌握基本概念）"><a href="#IS-IS路由协议（重点：掌握基本概念）" class="headerlink" title="IS-IS路由协议（重点：掌握基本概念）"></a>IS-IS路由协议（<code>重点：掌握基本概念</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230318210146332.png" alt="image-20230318210146332"></p>
+<blockquote>
+<p>IS-IS路由协议：中间系统到中间系统的协议</p>
+<p>链路状态：就是在路径选择的时候，基于接口的带宽，通过接口带宽去换算出一个开销值，开销值越小，链路状态越好的越优先选举为我们的路由路径</p>
+<p>RIP协议属于5层路由协议，封装在UDP后面，UDP属于4层（传输层），UDP后面属于5层（应用层）；<strong>OSPF协议属于3层路由协议，封装在IP内部</strong></p>
+<p>IS-IS属于2.5层路由协议，基于2层和3层之间的协议</p>
+</blockquote>
+<blockquote>
+<p>ip地址长度为32位（4个字节），分4段；mac地址长度为48位（6个字节），分6段</p>
+</blockquote>
+<blockquote>
+<p><strong><code>IS-IS路由协议的其中一个描述：使用Hello报文建立邻居关系</code></strong></p>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230318211512342.png" alt="image-20230318211512342"></p>
+<blockquote>
+<p><strong><code>考点：一般情况下，我们的网路结构就类似于上面这种，骨干区域与非骨干区域连接通信，必须有一台level1-2在非骨干区域</code></strong></p>
+<p><strong><code>IS-IS不以area区域划分骨干和非骨干区域</code></strong></p>
+</blockquote>
+<h3 id="报文类型"><a href="#报文类型" class="headerlink" title="报文类型"></a>报文类型</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319142815991.png" alt="image-20230319142815991"></p>
+<blockquote>
+<p>背</p>
+<ul>
+<li><p>SNP：用于描述的和同步列表的</p>
+</li>
+<li><p>LSP：用于传递具体信息的</p>
+</li>
+<li><p>IIH：用于建立邻居的</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="伪节点DIS的选举"><a href="#伪节点DIS的选举" class="headerlink" title="伪节点DIS的选举"></a>伪节点DIS的选举</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319143034926.png" alt="image-20230319143034926"></p>
+<blockquote>
+<p>DIS：指定中间系统</p>
+<p>有一台指定的指定中间系统设备，虚拟出一个伪节点，这个伪节点是所有的路由器设备都跟它建立同步关系</p>
+</blockquote>
+<h3 id="度量值（cost）"><a href="#度量值（cost）" class="headerlink" title="度量值（cost）"></a>度量值（cost）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319153921161.png" alt="image-20230319153921161"></p>
+<blockquote>
+<p>度量值（cost值或者开销值） &#x3D; 10的八次方（参考值） &#x2F; 接口带宽 ，计算cost值用于OSPF中，在IS-IS中，默认情况下，每个接口的cost值都是10，与接口带宽没有关系，在实际情况下，我们以采用度量值（cost值或者开销值） &#x3D; 10的八次方（参考值） &#x2F; 接口带宽</p>
+<p>考点：</p>
+<p>一台路由器学习某条路由，如何判断路由传递的方向？路由传递方向是这条路由到达一台路由器的方向，这台路由器先收到这条路由记录到表中，然后再去给这条路由的目的地址发送数据。</p>
+<p>路由传递方向就是经过每台设备的入接口的cost值的和等于一条IS-IS路径的cost值，同样求一条OSPF路径的cost值也是相同方式。</p>
+</blockquote>
+<h3 id="宣告方式-1"><a href="#宣告方式-1" class="headerlink" title="宣告方式"></a>宣告方式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319154227246.png" alt="image-20230319154227246"></p>
+<blockquote>
+<p>考点：</p>
+<p>路由协议根据运行的范围分为外部网关协议（IGP）和内部网关协议(BGP)</p>
+<p>属于内部网关协议的有：</p>
+<ul>
+<li>静态路由</li>
+<li>RIP路由协议</li>
+<li>OSPF路由协议</li>
+<li>IS-IS路由协议</li>
+</ul>
+<p>属于外部网关协议（边界网关协议）的有：</p>
+<ul>
+<li>BGP路由协议</li>
+</ul>
+</blockquote>
+<h3 id="路由渗透"><a href="#路由渗透" class="headerlink" title="路由渗透"></a>路由渗透</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319160436983.png" alt="image-20230319160436983"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319161959611.png" alt="image-20230319161959611"></p>
+<blockquote>
+<p>考点：IS-IS路由协议在运营商中用的比较多，在企业中用的不多，那为什么在运营商中不使用OSPF，因为IS-IS的收敛速度更快一些和IS-IS有很强的扩展性</p>
+</blockquote>
+<h3 id="BGP路由协议"><a href="#BGP路由协议" class="headerlink" title="BGP路由协议"></a>BGP路由协议</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319163554137.png" alt="image-20230319163554137"></p>
+<blockquote>
+<p>BGP中的自治域与OSPF中的自治域有所区别，BGP中的自治域包含不同的路由协议</p>
+<p><strong><code>考点：EBGP对等体和IBGP对等体都需要通过TCP：179端口建立邻居关系</code></strong></p>
+<p>BGP路由协议属于5层路由协议，<strong>主要考查OSPF路由协议属于3层</strong></p>
+<p>通过各种路由协议先将路由建立起来，才有TCP端口的会话建立，然后再建立BGP，上述视图中，第二台和第四台路由器是可以建立IBGP邻居关系</p>
+<p>BGP通过发送<strong>open报文建立邻居</strong>，然后通过<strong>updata报文传递路由信息</strong></p>
+<p>考点：在OSPF收敛后，发送的hello报文不仅要建立邻居，还要维护邻居，在BGP中，发送的open报文建立邻居，维护邻居是keepalive报文</p>
+<p><strong><code>考点：BGP后续只更新变化和增量BGP路由</code></strong></p>
+<p><strong><code>相同AS之间的BGP建立的是IBGP，不同AS之间的BGP建立的是EBGP</code></strong></p>
+</blockquote>
+<h3 id="BGP路由属性（重点）"><a href="#BGP路由属性（重点）" class="headerlink" title="BGP路由属性（重点）"></a>BGP路由属性（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319174449946.png" alt="image-20230319174449946"></p>
+<blockquote>
+<p>考点：BGP路由属性（背）</p>
+<p>注意：上面atomic_aggrega书写错误，应该是atomic_aggregate</p>
+</blockquote>
+<blockquote>
+<p>local_preference（本地优先级）：本地优先级值越大，越优先</p>
+</blockquote>
+<h3 id="BGP防环机制（重点）"><a href="#BGP防环机制（重点）" class="headerlink" title="BGP防环机制（重点）"></a>BGP防环机制（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319183912312.png" alt="image-20230319183912312"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319185432805.png" alt="image-20230319185432805"></p>
+<blockquote>
+<p>考点：BGP防环机制</p>
+<p><strong><code>BGP中的水平分割概念：一个IBGP邻居收到的BGP路由不能再传给另外一个IBGP邻居</code></strong></p>
+<p><strong><code>注意：AS域数值不一样的就是EBGP对等体，数值一样的是IBGP对等体</code></strong></p>
+</blockquote>
+<h3 id="解决由于防环机制而导致的无法传递路由问题"><a href="#解决由于防环机制而导致的无法传递路由问题" class="headerlink" title="解决由于防环机制而导致的无法传递路由问题"></a>解决由于防环机制而导致的无法传递路由问题</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319185758595.png" alt="image-20230319185758595"></p>
+<h3 id="BGP选路原则"><a href="#BGP选路原则" class="headerlink" title="BGP选路原则"></a>BGP选路原则</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319193257896.png" alt="image-20230319193257896"></p>
+<blockquote>
+<p>考点：上面视图勾选的5点记下来，顺序不能搞错</p>
+</blockquote>
+<h3 id="BGP路由的生成方式"><a href="#BGP路由的生成方式" class="headerlink" title="BGP路由的生成方式"></a>BGP路由的生成方式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319193529549.png" alt="image-20230319193529549"></p>
+<blockquote>
+<p>考点：BGP路由的生成方式</p>
+<ul>
+<li>使用network宣告路由，可以精确宣告路由，但是大量的路由条目造成工作量较大</li>
+<li>使用路由引入方式，会造成该协议的所有路由条目均成为BGP路由，精细化程度低，不过工作量较小</li>
+</ul>
+</blockquote>
+<h3 id="BGP基本配置"><a href="#BGP基本配置" class="headerlink" title="BGP基本配置"></a>BGP基本配置</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230319194603896.png" alt="image-20230319194603896"></p>
+<h3 id="RIP路由过滤"><a href="#RIP路由过滤" class="headerlink" title="RIP路由过滤"></a>RIP路由过滤</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320163536693.png" alt="image-20230320163536693"></p>
+<blockquote>
+<p>acl访问控制列表有两个作用：</p>
+<ul>
+<li>数据控制，数据包能不能发过去</li>
+<li>匹配路由，匹配网段</li>
+</ul>
+<p>export：出方向，发送路由的方向</p>
+<p>import：入方向，接受路由的方向</p>
+<p>filter-policy：路由过滤列表</p>
+</blockquote>
+<h3 id="OSPF路由过滤"><a href="#OSPF路由过滤" class="headerlink" title="OSPF路由过滤"></a>OSPF路由过滤</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320163726148.png" alt="image-20230320163726148"></p>
+<blockquote>
+<p><strong>注意：OSPF路由过滤不能像RIP路由过滤那样配置初方向，所以一般情况下OSPF的路由过滤在入方向，也就是接受路由的方向上去配置相应的过滤</strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230322_113247.jpg" alt="IMG_20230322_113247"></p>
+<blockquote>
+<p>OSPF第一个重要特性</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_20230322_115742.jpg" alt="IMG_20230322_115742"></p>
+<blockquote>
+<p>OSPF中第二个重要特性</p>
+</blockquote>
+<h3 id="IS-IS路由过滤"><a href="#IS-IS路由过滤" class="headerlink" title="IS-IS路由过滤"></a>IS-IS路由过滤</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320164656560.png" alt="image-20230320164656560"></p>
+<blockquote>
+<p>IS-IS路由过滤和OSPF路由过滤差不多，因为IS-IS和OSPF都是链路状态路由协议</p>
+<p>RIP路由过滤和BGP路由过滤差不多，因为RIP和BGP都是距离矢量路由协议</p>
+</blockquote>
+<h3 id="BGP路由过滤"><a href="#BGP路由过滤" class="headerlink" title="BGP路由过滤"></a>BGP路由过滤</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320183315501.png" alt="image-20230320183315501"></p>
+<blockquote>
+<p>BGP路由过滤在出方向和入方向都可以</p>
+</blockquote>
+<h3 id="RIP路由汇总"><a href="#RIP路由汇总" class="headerlink" title="RIP路由汇总"></a>RIP路由汇总</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320185136736.png" alt="image-20230320185136736"></p>
+<blockquote>
+<p>RIP路由汇总分为两种：RIP有两个版本，V1版本不支持汇总，V1版本只支持主类路由，V2版本支持有类和无类路由，路由汇总一般默认情况下都是V2版本，V2版本有两种方式，第一种方式是自动汇总和第二种方式手动汇总</p>
+<p><strong>注意：在上述视图中，配置的命令如果是summary，那么在R2的路由表中依旧显示10.1.1.0&#x2F;24和10.1.2.0&#x2F;24，是起不到自动汇总，必须配置的命令是summary always，那么在R2的路由表上显示10.0.0.0&#x2F;8，说明自动汇总了（考点）</strong></p>
+</blockquote>
+<h3 id="OSPF路由汇总"><a href="#OSPF路由汇总" class="headerlink" title="OSPF路由汇总"></a>OSPF路由汇总</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320190127396.png" alt="image-20230320190127396"></p>
+<blockquote>
+<p>OSPF做路由汇总基于谁产生LSA，在谁身上进行汇总</p>
+<p>上述视图中，AR2产生3-LSA（网路汇总LSA），AR4产生5-LSA</p>
+</blockquote>
+<h3 id="IS-IS路由汇总"><a href="#IS-IS路由汇总" class="headerlink" title="IS-IS路由汇总"></a>IS-IS路由汇总</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320191916667.png" alt="image-20230320191916667"></p>
+<blockquote>
+<p>上述视图中的level-1位置，默认情况是level-2</p>
+</blockquote>
+<h3 id="BGP路由汇总"><a href="#BGP路由汇总" class="headerlink" title="BGP路由汇总"></a>BGP路由汇总</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320192413250.png" alt="image-20230320192413250"></p>
+<blockquote>
+<p>as-set（携带AS属性）：比如在AR2设备上进行聚合，AR2收到10.1.1.0&#x2F;24和10.1.2.0&#x2F;24收到这两条路由之后，会携带一个as-path参数，这个参数中包含了什么东西，包含自治域编号，也就是100，如果在AR2上一旦做了汇总之后，as-path参数就会被丢弃，如果不想丢弃，就加上as-set</p>
+<p>atomic_aggregate：原子聚合属性，一旦聚合后，没有携带as-set参数，as-path属性丢失时，就可能出现活路，as-path属性是用于防环的，当我们单纯的进行路由聚合，不带as-set参数，会有个叫atomic_aggregate属性用于向后面的路由器提示被聚合的路由器，提示被聚合的路由器丢了东西 ，你不要后面有活路，注意一点，有as-set参数，就没有提示了</p>
+<p>没有携带as-set参数，在AR1上聚合是不会丢失as-path属性的，因为是AR1是先聚合了再发送的，在发送的时候才携带as-path，是不会丢失的，而在AR2上是收到路由之后，再做聚合，聚合后，as-path属性就丢失了。</p>
+<p>上述视图中AS 100就是自治域编号</p>
+</blockquote>
+<blockquote>
+<p><strong>注意：OSPF、RIP、IS-IS都不能写掩码长度在聚合路由中，但是BGP聚合路由是可以写长度的</strong></p>
+</blockquote>
+<blockquote>
+<p>考点：配置聚合之后，问你后边有哪些路由，对于OSPF、RIP、IS-IS聚合路由之后，我们看不到明细路由，但是在BGP中，有可能看到明细路由，这是BGP的一个特性，举例如下</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230322185423892.png" alt="image-20230322185423892"></p>
+<blockquote>
+<p>聚合之后，会看到两条明细路由和一条聚合路由</p>
+<ul>
+<li>10.1.1.0</li>
+<li>10.1.2.0</li>
+<li>10.1.0.0</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="路由引入"><a href="#路由引入" class="headerlink" title="路由引入"></a>路由引入</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230320201142641.png" alt="image-20230320201142641"></p>
+<blockquote>
+<p>OSPF的外部引入路由必须在ASBR上聚合，而且ABR上聚合要选定一个区域，ASBR上直接不用选区</p>
+</blockquote>
+<h3 id="BGP路由表"><a href="#BGP路由表" class="headerlink" title="BGP路由表"></a>BGP路由表</h3><blockquote>
+<p>BGP路由表：每一种路由协议都有自己私有的一张表，私有的路由表并不一定所有的路由都会放到我们真正的IP路由表中，因为我们的路由转发是基于IP路由表的，主要是BGPl路由协议。</p>
+</blockquote>
+<blockquote>
+<p>在私有路由表中，*表示这个路由是生效的，&gt;表示最优的路径，通过network形成的路由叫IGP（i），通过外部引入的路由叫？</p>
+</blockquote>
+<blockquote>
+<p>detail-suppressed：抑制明细，用于不想出现明细路由</p>
+<p>考点：对于BGP路由，可能会考在R2设备上配置aggregate 10.1.0.0 16 as-set ，问你R3上的路由条目是多少?有三条路由（两条明细路由，一条聚合路由），如果是aggregate 10.1.0.0 16 as-set detail-suppressed，则是一条路由（一条聚合路由）。</p>
+</blockquote>
+<h3 id="ACL访问控制列表（重点）"><a href="#ACL访问控制列表（重点）" class="headerlink" title="ACL访问控制列表（重点）"></a>ACL访问控制列表（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230324134203542.png" alt="image-20230324134203542"></p>
+<blockquote>
+<p><strong><code>基本ACL：只能匹配基于源地址</code></strong></p>
+<p><strong><code>扩展ACL：基于源地址、目的地址、协议、端口、其他字段等等</code></strong> </p>
+<p><strong><code>ACL两个作用：一个是数据访问控制，另一个是匹配路由和过滤数据</code></strong></p>
+</blockquote>
+<h3 id="NAT地址转换（重点）"><a href="#NAT地址转换（重点）" class="headerlink" title="NAT地址转换（重点）"></a>NAT地址转换（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230324135902860.png" alt="image-20230324135902860"></p>
+<blockquote>
+<p>私有ip地址不能访问互联网，公网ip地址可以</p>
+<p><strong><code>私有地址转公有地址</code></strong></p>
+<p><strong><code>端口映射：外网的公有地址访问内部的私有地址，需要通过端口映射</code></strong></p>
+</blockquote>
+<h3 id="VRRP网关冗余协议"><a href="#VRRP网关冗余协议" class="headerlink" title="VRRP网关冗余协议"></a>VRRP网关冗余协议</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230324181758953.png" alt="image-20230324181758953"></p>
+<blockquote>
+<p><strong><code>VRRP：虚拟冗余路由协议</code></strong></p>
+</blockquote>
+<h3 id="PBR策略路由"><a href="#PBR策略路由" class="headerlink" title="PBR策略路由"></a>PBR策略路由</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230324183820627.png" alt="image-20230324183820627"></p>
+<blockquote>
+<p><strong><code>PBR策略路由</code></strong></p>
+</blockquote>
+<h3 id="IPv6的地址格式及分类"><a href="#IPv6的地址格式及分类" class="headerlink" title="IPv6的地址格式及分类"></a>IPv6的地址格式及分类</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230326184333202.png" alt="image-20230326184333202"></p>
+<blockquote>
+<p>考点：IPv6地址类型，多播的地址范围不记</p>
+</blockquote>
+<h3 id="IPv6表示方式"><a href="#IPv6表示方式" class="headerlink" title="IPv6表示方式"></a>IPv6表示方式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230326190902035.png" alt="image-20230326190902035"></p>
+<blockquote>
+<p>考点：选择题考查IPv6表示方式（重点）</p>
+</blockquote>
+<h3 id="IPv6地址范围"><a href="#IPv6地址范围" class="headerlink" title="IPv6地址范围"></a>IPv6地址范围</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230326193410782.png" alt="image-20230326193410782"></p>
+<blockquote>
+<p><strong><code>考点：考查选择题，问下列哪些属于可聚合全球单播地址，只需记2001：：/64和2002：：/64</code></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><code>考点：考查哪些是站点本地地址，只需记FEC0::/10</code></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><code>考点：考查哪些是链路本地地址，只需记FE80::/10</code></strong></p>
+</blockquote>
+<h3 id="IPv4特殊地址"><a href="#IPv4特殊地址" class="headerlink" title="IPv4特殊地址"></a>IPv4特殊地址</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327144458148.png" alt="image-20230327144458148"></p>
+<blockquote>
+<p>考点：记住两个特殊地址即可</p>
+</blockquote>
+<h3 id="IPv6过渡技术"><a href="#IPv6过渡技术" class="headerlink" title="IPv6过渡技术"></a>IPv6过渡技术</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327145237115.png" alt="image-20230327145237115"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327150034051.png" alt="image-20230327150034051"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327150057291.png" alt="image-20230327150057291"></p>
+<blockquote>
+<p><strong><code>考得很少，了解即可，只需记住自动隧道有6to4和ISATAP隧道</code></strong></p>
+</blockquote>
+<h3 id="IPv6报文结构"><a href="#IPv6报文结构" class="headerlink" title="IPv6报文结构"></a>IPv6报文结构</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327151644568.png" alt="image-20230327151644568"></p>
+<blockquote>
+<p>考点：下列头部类型的顺序号要记住</p>
+<ul>
+<li>逐跳选项：2</li>
+<li>分片选项：5</li>
+<li>封装安全载荷（ESP）：7</li>
+<li>认证（AH）：6</li>
+</ul>
+</blockquote>
+<h3 id="知识补充"><a href="#知识补充" class="headerlink" title="知识补充"></a>知识补充</h3><blockquote>
+<p>RIP、OSPF、BGP都满足如下特性：</p>
+<ul>
+<li>路由过滤</li>
+<li>路由汇总</li>
+<li>邻居关系认证</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>BGP采用增量更新方式进行路由更新</p>
+</blockquote>
+<blockquote>
+<p>BGP协议适用于大型网络（运营商中）</p>
+</blockquote>
+<blockquote>
+<p>路由更新时，BGP只发送增量路由</p>
+</blockquote>
+<blockquote>
+<p>IPV6与IPV4的区别</p>
+<ul>
+<li>IPV4首部的长度是不固定的，范围是20~60</li>
+<li>IPV6首部的长度是固定的，长度为40</li>
+<li>IPV6不存在校验字段，IPV4存在校验字段</li>
+<li>IPV6存在扩展，IPV4不存在扩展</li>
+<li>IPV6没有填充字段，IPV4有填充字段</li>
+</ul>
+<p>IPV6和IPV4都具备的特性：都有限制报文传输环路的字段</p>
+</blockquote>
+<h2 id="2、传输层协议"><a href="#2、传输层协议" class="headerlink" title="2、传输层协议"></a>2、传输层协议</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327163524956.png" alt="image-20230327163524956"></p>
+<blockquote>
+<p>考查TCP概念</p>
+</blockquote>
+<blockquote>
+<p><strong><code>考点：考查TCP和UDP的IP报文的协议号是多少。</code></strong></p>
+</blockquote>
+<blockquote>
+<p>面向字节：TCP传送的数据都是以字节的形式传送</p>
+</blockquote>
+<blockquote>
+<p>在OSI七层模型中，传送数据的单位分别是</p>
+<ul>
+<li>第一层：比特</li>
+<li>第二层：帧</li>
+<li>第三层：分组报文</li>
+<li>第四层：数据段</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong><code>封装在ip报文中的协议有：TCP（协议号是6）、OSPF（协议号是89）、ICMP（协议号是1）</code></strong></p>
+</blockquote>
+<h3 id="TCP报文结构"><a href="#TCP报文结构" class="headerlink" title="TCP报文结构"></a>TCP报文结构</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327163731595.png" alt="image-20230327163731595"></p>
+<blockquote>
+<p><strong><code>注意：IP数据部分表示的是去掉IP头的部分，IP段表示的是IP头 + IP数据</code></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><code>TCP报文段的最大值为1480B ----------  1518-18-20=1480字节</code></strong></p>
+</blockquote>
+<h3 id="UDP报文结构"><a href="#UDP报文结构" class="headerlink" title="UDP报文结构"></a>UDP报文结构</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327165359134.png" alt="image-20230327165359134"></p>
+<h3 id="TCP协议三次握手与四次握手（重点）"><a href="#TCP协议三次握手与四次握手（重点）" class="headerlink" title="TCP协议三次握手与四次握手（重点）"></a>TCP协议三次握手与四次握手（重点）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327165734683.png" alt="image-20230327165734683"></p>
+<blockquote>
+<p>三次握手：两个设备之间首次建立TCP连接</p>
+</blockquote>
+<blockquote>
+<p>SYN（同步序列编号）：SYN&#x3D;1时，表明请求<strong>建立</strong>连接</p>
+<p>FIN：关闭连接</p>
+<p>seq：TCP的字节的序号，序号是一个任意值</p>
+<p>ACK<strong>（确认序号）</strong>：ACK&#x3D;1时确认号字段才有效，ACK&#x3D;0时确认号字段无效</p>
+<p>seq&#x3D;x与seq&#x3D;y没有任何的关系，取决于A和B它们自己</p>
+<p>B发送的SYN&#x3D;1是对A发送的SYN&#x3D;1的回应；</p>
+<p>B发送的ACK&#x3D;1是对A发送的SYN&#x3D;1的确认；</p>
+<p>B发送的ack&#x3D;x+1是对A发送的seq&#x3D;x的确认，为什么是x+1？表示x以及包括x之前的数据B都收到了，然后B确认号是x+1，就证明收到之后，B还要请求A再一次发送一个x+1的序号的字节</p>
+<p><strong>注意：第三次握手的SYN&#x3D;0,表示关闭了</strong></p>
+</blockquote>
+<h3 id="TCP连接状态"><a href="#TCP连接状态" class="headerlink" title="TCP连接状态"></a>TCP连接状态</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327174141699.png" alt="image-20230327174141699"></p>
+<blockquote>
+<p>理解性的背</p>
+</blockquote>
+<h3 id="TCP协议四大机制"><a href="#TCP协议四大机制" class="headerlink" title="TCP协议四大机制"></a>TCP协议四大机制</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327174732976.png"></p>
+<blockquote>
+<p>第一个字节的序号是400，最高序号是499，最终的确认号是500</p>
+<p>TCP的确认机制是对字节的确认</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327185256138.png" alt="image-20230327185256138"></p>
+<blockquote>
+<p>TCP使用的流量控制机制是可变大小的滑动窗口协议</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327185400378.png" alt="image-20230327185400378"></p>
+<blockquote>
+<p>1、2、4、8、16（初始值是1，第一个周期从2开始，第一个周期是2，第二个周期是4，第三个周期是8，第四个周期是16，第五个周期是1，第六个周期是2，第七个周期是4，第八个周期是8，以此类推。第四个周期和第十七个周期开始发生拥塞）</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327185827219.png" alt="image-20230327185827219"></p>
+<blockquote>
+<p>考点：给你一段描述，让你选择是哪个重传机制</p>
+</blockquote>
+<h4 id="常见应用端口号"><a href="#常见应用端口号" class="headerlink" title="常见应用端口号"></a>常见应用端口号</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230327190158206.png" alt="image-20230327190158206"></p>
+<blockquote>
+<p>考点：根据描述，选择是哪个端口号</p>
+</blockquote>
+<blockquote>
+<p>TCP20、TCP22、TCP25、TCP80、TCP23、TCP443</p>
+</blockquote>
+<h3 id="知识补充-1"><a href="#知识补充-1" class="headerlink" title="知识补充"></a>知识补充</h3><blockquote>
+<p>拥塞窗口是发送端根据网络拥塞情况确定的窗口值</p>
+</blockquote>
+<blockquote>
+<p>一个完整帧包含MAC二层头+IP头+TCP头，一个完整帧1518字节，里面有14字节的MAC二层头，4个字节的二层校验，若没有其他条件，默认情况下还需要减去20个字节的IP头长度，当问TCP报文段的最大值为多少时？1518 - 14 - 4 - 20 &#x3D; 1480个字节</p>
+<p>注意：TCP报文段包含了TCP头和TCP数据，IP报文段包含了IP头和IP数据，IP数据就是TCP报文段</p>
+<p>TCP报头中固定长度部分为20个字节，与IP头长度一样</p>
+</blockquote>
+<h2 id="3、应用层协议"><a href="#3、应用层协议" class="headerlink" title="3、应用层协议"></a>3、应用层协议</h2><h3 id="DNS服务器"><a href="#DNS服务器" class="headerlink" title="DNS服务器"></a>DNS服务器</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328191146040.png" alt="image-20230328191146040"></p>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328191848030.png" alt="image-20230328191848030"></p>
+<blockquote>
+<p>考点：根据地域性划分类型常考</p>
+</blockquote>
+<blockquote>
+<p><strong><code>考点：根域名服务器是整个DNS成员中最高级的那个，那它是不是保存了我们网上所有网站所有服务资源的ip地址和域名的映射是吗? 不是</code></strong></p>
+</blockquote>
+<blockquote>
+<p>顶级域名服务器是根域名服务器的下一级</p>
+</blockquote>
+<blockquote>
+<p>二级、三级、一级的域名服务器都属于权限域名服务器（等级域名服务器）</p>
+</blockquote>
+<blockquote>
+<p>层级关系自下而上由低到高</p>
+</blockquote>
+<h3 id="DNS查询方式（常考）"><a href="#DNS查询方式（常考）" class="headerlink" title="DNS查询方式（常考）"></a>DNS查询方式（常考）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328194254538.png" alt="image-20230328194254538"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328200345457.png" alt="image-20230328200345457"></p>
+<blockquote>
+<p><strong><code>考点：根据图判断是什么查询方式</code></strong></p>
+</blockquote>
+<h3 id="客户机查询DNS顺序"><a href="#客户机查询DNS顺序" class="headerlink" title="客户机查询DNS顺序"></a>客户机查询DNS顺序</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328200554381.png" alt="image-20230328200554381"></p>
+<h3 id="DNS资源记录（常考）"><a href="#DNS资源记录（常考）" class="headerlink" title="DNS资源记录（常考）"></a>DNS资源记录（常考）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328201344169.png" alt="image-20230328201344169"></p>
+<blockquote>
+<p><strong><code>考点：给你一段描述，判断是那个资源记录或者给你名称，选择对应的描述</code></strong></p>
+</blockquote>
+<h3 id="DHCP服务器（重点）"><a href="#DHCP服务器（重点）" class="headerlink" title="DHCP服务器（重点）"></a>DHCP服务器（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328201939176.png" alt="image-20230328201939176"></p>
+<blockquote>
+<p><strong><code>考点：DHCP报文类型常考，给你一段描述，判断是哪个报文类型或者给你报文类型名称，选择对应的描述</code></strong></p>
+</blockquote>
+<h3 id="DHCP工作原理（重点）"><a href="#DHCP工作原理（重点）" class="headerlink" title="DHCP工作原理（重点）"></a>DHCP工作原理（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328203133049.png" alt="image-20230328203133049"></p>
+<blockquote>
+<p><strong><code>每一种报文在什么阶段发送是以单播还是广播的形式发送一定要记下来（重点）（常考）</code></strong></p>
+</blockquote>
+<blockquote>
+<p>上述内容考试重点，常考</p>
+</blockquote>
+<blockquote>
+<p><strong><code>考点：客户端正式使用ip地址是在什么阶段？在ACK阶段</code></strong></p>
+</blockquote>
+<h3 id="续租租ip地址"><a href="#续租租ip地址" class="headerlink" title="续租租ip地址"></a>续租租ip地址</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328204753376.png" alt="image-20230328204753376"></p>
+<blockquote>
+<p>考点：顺序过程记下来</p>
+</blockquote>
+<h3 id="option-id"><a href="#option-id" class="headerlink" title="option id"></a>option id</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328205631641.png" alt="image-20230328205631641"></p>
+<blockquote>
+<p>三层网路节点（三层交换机或者路由器）是隔离广播的，Vlan也是隔离广播的</p>
+</blockquote>
+<blockquote>
+<p>中继：广播转换为单播</p>
+</blockquote>
+<h3 id="FTP服务器"><a href="#FTP服务器" class="headerlink" title="FTP服务器"></a>FTP服务器</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328210438759.png" alt="image-20230328210438759"></p>
+<blockquote>
+<p><strong><code>记控制连接是21端口；数据连接时20端口以及断点信息保存在客户端上</code></strong></p>
+</blockquote>
+<h3 id="FTP的连接方式"><a href="#FTP的连接方式" class="headerlink" title="FTP的连接方式"></a>FTP的连接方式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328211432071.png" alt="image-20230328211432071"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328224341224.png" alt="image-20230328224341224"></p>
+<blockquote>
+<p>考点：告诉你是什么模式，然后给你一个数值，选项里问你它是使用了哪一个端口</p>
+</blockquote>
+<h3 id="FTP账户权限"><a href="#FTP账户权限" class="headerlink" title="FTP账户权限"></a>FTP账户权限</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328224918797.png" alt="image-20230328224918797"></p>
+<h3 id="邮件服务器"><a href="#邮件服务器" class="headerlink" title="邮件服务器"></a>邮件服务器</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328225257277.png" alt="image-20230328225257277"></p>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230328225857110.png" alt="image-20230328225857110"></p>
+<blockquote>
+<p><strong><code>考点：选择哪些是用于邮件加密的</code></strong></p>
+</blockquote>
+<blockquote>
+<p>在邮件服务器上，用户可以自行决定是否删除邮件，则邮件服务器必须使用**<code>IMAP协议</code>**。</p>
+</blockquote>
+<h3 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329005312121.png" alt="image-20230329005312121"></p>
+<h3 id="缓存数据"><a href="#缓存数据" class="headerlink" title="缓存数据"></a>缓存数据</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329005345588.png" alt="image-20230329005345588"></p>
+<h3 id="常见的http错误代码"><a href="#常见的http错误代码" class="headerlink" title="常见的http错误代码"></a>常见的http错误代码</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329005625434.png" alt="image-20230329005625434"></p>
+<h3 id="web代理服务器"><a href="#web代理服务器" class="headerlink" title="web代理服务器"></a>web代理服务器</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329101510712.png" alt="image-20230329101510712"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329103959556.png" alt="image-20230329103959556"></p>
+<blockquote>
+<p>考点：下列不属于IIS服务的有哪些？IIS服务中只有FTP、NNTP、HTTP，叫信息服务</p>
+</blockquote>
+<h2 id="4、无线接入技术"><a href="#4、无线接入技术" class="headerlink" title="4、无线接入技术"></a>4、无线接入技术</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329104922380.png" alt="image-20230329104922380"></p>
+<blockquote>
+<p>考点：给你一段场景让你选适合什么技术</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329105344617.png" alt="image-20230329105344617"></p>
+<blockquote>
+<p>考点：给你一段场景让你选适合什么技术</p>
+</blockquote>
+<h3 id="无线局域网技术"><a href="#无线局域网技术" class="headerlink" title="无线局域网技术"></a>无线局域网技术</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329105453090.png" alt="image-20230329105453090"></p>
+<blockquote>
+<p><strong><code>考点：以下1G的传输速率的是哪一个标准或者以下标准中使用了mimo技术的是哪一个标准</code></strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329105518918.png" alt="image-20230329105518918"></p>
+<blockquote>
+<p>一般不考5G频段</p>
+</blockquote>
+<blockquote>
+<p>考点：在2.4GHz频段中，相邻信道的中心频点间隔5MHz</p>
+<p>考点：在2.4GHz频段中，只有3个（1、6、11）互不干扰信道可用</p>
+</blockquote>
+<h3 id="CSMA-x2F-CA（冲突避免）"><a href="#CSMA-x2F-CA（冲突避免）" class="headerlink" title="CSMA&#x2F;CA（冲突避免）"></a>CSMA&#x2F;CA（<code>冲突避免</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329105637879.png" alt="image-20230329105637879"></p>
+<h3 id="AC无线控制器-AP节点的无线网络架构"><a href="#AC无线控制器-AP节点的无线网络架构" class="headerlink" title="AC无线控制器+AP节点的无线网络架构"></a>AC无线控制器+AP节点的无线网络架构</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329105651273.png" alt="image-20230329105651273"></p>
+<h3 id="AC模式"><a href="#AC模式" class="headerlink" title="AC模式"></a>AC模式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329105711278.png" alt="image-20230329105711278"></p>
+<h3 id="无线控制器转发模式"><a href="#无线控制器转发模式" class="headerlink" title="无线控制器转发模式"></a>无线控制器转发模式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329131017542.png" alt="image-20230329131017542"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329131106022.png" alt="image-20230329131106022"></p>
+<h3 id="无线加密"><a href="#无线加密" class="headerlink" title="无线加密"></a>无线加密</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329164258405.png" alt="image-20230329164258405"></p>
+<h3 id="客户端认证方案"><a href="#客户端认证方案" class="headerlink" title="客户端认证方案"></a>客户端认证方案</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329131251049.png" alt="image-20230329131251049"></p>
+<blockquote>
+<p>考点：给一段描述，选择适合那种认证方式</p>
+</blockquote>
+<h3 id="AP的种类"><a href="#AP的种类" class="headerlink" title="AP的种类"></a>AP的种类</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329165157360.png" alt="image-20230329165157360"></p>
+<h3 id="AP的部署以及无线漫游的条件"><a href="#AP的部署以及无线漫游的条件" class="headerlink" title="AP的部署以及无线漫游的条件"></a>AP的部署以及无线漫游的条件</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329165757065.png" alt="image-20230329165757065"></p>
+<h3 id="AP的供电方式"><a href="#AP的供电方式" class="headerlink" title="AP的供电方式"></a>AP的供电方式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329170217422.png" alt="image-20230329170217422"></p>
+<h3 id="广域网技术"><a href="#广域网技术" class="headerlink" title="广域网技术"></a>广域网技术</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329170707159.png" alt="image-20230329170707159"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329171340043.png" alt="image-20230329171340043"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329171528773.png" alt="image-20230329171528773"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329171852233.png" alt="image-20230329171852233"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329172243787.png" alt="image-20230329172243787"></p>
+<h3 id="接入网技术"><a href="#接入网技术" class="headerlink" title="接入网技术"></a>接入网技术</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329172846959.png" alt="image-20230329172846959"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329173309966.png" alt="image-20230329173309966"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329173656027.png" alt="image-20230329173656027"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329174443541.png" alt="image-20230329174443541"></p>
+<h3 id="PPP与PPPoE技术-重点"><a href="#PPP与PPPoE技术-重点" class="headerlink" title="PPP与PPPoE技术(重点)"></a>PPP与PPPoE技术(<code>重点</code>)</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329175119998.png" alt="image-20230329175119998"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329175750647.png" alt="image-20230329175750647"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230329180026902.png" alt="image-20230329180026902"></p>
+<h2 id="5、网络安全"><a href="#5、网络安全" class="headerlink" title="5、网络安全"></a>5、网络安全</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331123325450.png" alt="image-20230331123325450"></p>
+<blockquote>
+<p>考点：下列属于病毒特性的有哪些</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331124003367.png" alt="image-20230331124003367"></p>
+<blockquote>
+<p>考点：给你一段描述，让你选择是特洛伊木马、网络蠕虫、病毒还是后门漏洞或者给你文件后缀让你判断</p>
+</blockquote>
+<h3 id="网络攻击（重点）"><a href="#网络攻击（重点）" class="headerlink" title="网络攻击（重点）"></a>网络攻击（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331124910411.png" alt="image-20230331124910411"></p>
+<h3 id="常见网络攻击类型"><a href="#常见网络攻击类型" class="headerlink" title="常见网络攻击类型"></a>常见网络攻击类型</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331125836497.png" alt="image-20230331125836497"></p>
+<blockquote>
+<p>考点：通过上述的例如，选择对应的网络攻击类型</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331131135723.png" alt="image-20230331131135723"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331131158261.png" alt="image-20230331131158261"></p>
+<blockquote>
+<p><strong><code>考点：4~9这几种攻击一般在下午的案例分析中考查，比如给你一张图片或者给你一段描述让你选择是那种攻击</code></strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331132241822.png" alt="image-20230331132241822"></p>
+<blockquote>
+<p><strong><code>考点：假如给你一张拓扑图，让你选择是什么区域，，只要看到服务器且对外提供访问，那一定是DMZ</code></strong></p>
+</blockquote>
+<h3 id="网络安全设备"><a href="#网络安全设备" class="headerlink" title="网络安全设备"></a>网络安全设备</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331132821586.png" alt="image-20230331132821586"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331133136734.png" alt="image-20230331133136734"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331133156146.png" alt="image-20230331133156146"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331172035968.png" alt="image-20230331172035968"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331173734391.png" alt="image-20230331173734391"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331174036603.png" alt="image-20230331174036603"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331174526467.png" alt="image-20230331174526467"></p>
+<blockquote>
+<p>根据描述，选择网络安全设备</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331180256521.png" alt="image-20230331180256521"></p>
+<blockquote>
+<p>考点：算法中属于对称密钥或者说属于非对称密钥算法的是哪些</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331190811341.png" alt="image-20230331190811341"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331191103683.png" alt="image-20230331191103683"></p>
+<h3 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331191854047.png" alt="image-20230331191854047"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331191939608.png" alt="image-20230331191939608"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331192120549.png" alt="image-20230331192120549"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331192527911.png" alt="image-20230331192527911"></p>
+<blockquote>
+<p>考点：下列是数字签名的特性是那些</p>
+<p>考点：<strong>口诀：公钥加密验证，私钥解密签名</strong></p>
+</blockquote>
+<h3 id="VPN技术"><a href="#VPN技术" class="headerlink" title="VPN技术"></a>VPN技术</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331214821119.png" alt="image-20230331214821119"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331215055822.png" alt="image-20230331215055822"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331215154957.png" alt="image-20230331215154957"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331215354024.png" alt="image-20230331215354024"></p>
+<blockquote>
+<p>考点：验证范围和加密范围记下来</p>
+<p>在传输模式中：</p>
+<ul>
+<li>AH验证范围是IP头到data</li>
+<li>ESP加密范围是TCP头到ESP尾</li>
+<li>ESP验证范围是ESP到ESP尾</li>
+</ul>
+<p>在隧道模式中：</p>
+<ul>
+<li>AH验证范围是新IP头到data</li>
+<li>ESP加密范围是IP头到ESP尾</li>
+<li>ESP验证范围是ESP到ESP尾</li>
+</ul>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331220428549.png" alt="image-20230331220428549"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230331223927427.png" alt="image-20230331223927427"></p>
+<blockquote>
+<p><strong><code>考点：给你一段场景，问你适合建立哪一种VPN，比如说：</code></strong></p>
+<ul>
+<li><p>对于企业级来讲低成本的一般用IPsec-VPN；</p>
+</li>
+<li><p>租用公网的一般用MPSLS-VPN（成本高，解决私网地址重复）；</p>
+</li>
+<li><p>对于员工在外远程办公，需要连接到公司的服务器去访问一些文件，这个时候就有三个选择，PPTP、L2TP、SSL-VPN（基于web），一般选择SSL-VPN，SSL-VPN比前两个更加灵活</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="6、网络存储"><a href="#6、网络存储" class="headerlink" title="6、网络存储"></a>6、网络存储</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230403175503561.png" alt="image-20230403175503561"></p>
+<h3 id="存储介质"><a href="#存储介质" class="headerlink" title="存储介质"></a>存储介质</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409203256259.png" alt="image-20230409203256259"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409203745356.png" alt="image-20230409203745356"></p>
+<h3 id="磁盘阵列技术（重点）"><a href="#磁盘阵列技术（重点）" class="headerlink" title="磁盘阵列技术（重点）"></a>磁盘阵列技术（重点）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409205655940.png" alt="image-20230409205655940"></p>
+<blockquote>
+<p><strong><code>考点：</code></strong></p>
+<p>RAID 0是容量最大的，读写性能最高，但是最不 安全</p>
+<p>RAID 1是利用率最低，安全性最高</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409212456834.png" alt="image-20230409212456834"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409212947659.png" alt="image-20230409212947659"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409213522865.png" alt="image-20230409213522865"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409220348343.png" alt="image-20230409220348343"></p>
+<blockquote>
+<p>考点：假如我存5T的数据，用1T的硬盘，如果能保证数据恢复，需要几块硬盘？七块硬盘</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409221102235.png" alt="image-20230409221102235"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409221457142.png" alt="image-20230409221457142"></p>
+<h3 id="网络存储设备"><a href="#网络存储设备" class="headerlink" title="网络存储设备"></a>网络存储设备</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409221906606.png" alt="image-20230409221906606"></p>
+<h3 id="存储网络"><a href="#存储网络" class="headerlink" title="存储网络"></a>存储网络</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409225507243.png" alt="image-20230409225507243"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230409225604260.png" alt="image-20230409225604260"></p>
+<blockquote>
+<p>考点：给一个拓扑图，问图中是什么设备或者是什么网络</p>
+</blockquote>
+<h2 id="7、网络基础与数据通信基础"><a href="#7、网络基础与数据通信基础" class="headerlink" title="7、网络基础与数据通信基础"></a>7、网络基础与数据通信基础</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410155446209.png" alt="image-20230410155446209"></p>
+<h3 id="计算机网路分类与模型"><a href="#计算机网路分类与模型" class="headerlink" title="计算机网路分类与模型"></a>计算机网路分类与模型</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410160033822.png" alt="image-20230410160033822"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410161038455.png" alt="image-20230410161038455"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410161120236.png" alt="image-20230410161120236"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410161421662.png" alt="image-20230410161421662"></p>
+<blockquote>
+<p>考点：考查数据单元</p>
+</blockquote>
+<blockquote>
+<p>下一层是上一层的支撑，下一层为上一层服务</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410161746269.png" alt="image-20230410161746269"></p>
+<blockquote>
+<p><strong><code>考点：考查各协议属于那个层级</code></strong></p>
+</blockquote>
+<h3 id="网络通信基本单位"><a href="#网络通信基本单位" class="headerlink" title="网络通信基本单位"></a>网络通信基本单位</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410162727164.png" alt="image-20230410162727164"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410163203679.png" alt="image-20230410163203679"></p>
+<blockquote>
+<p>1MB等于多少b？先将M换算成b（1024x1024），再将B换算成b，如下：</p>
+<p>1024x1024x8</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410164353204.png" alt="image-20230410164353204"></p>
+<h3 id="网络通信基础"><a href="#网络通信基础" class="headerlink" title="网络通信基础"></a>网络通信基础</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410165452748.png" alt="image-20230410165452748"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410170206215.png" alt="image-20230410170206215"></p>
+<blockquote>
+<p><strong><code>码元种类记下来，计算题不会给出码元种类</code></strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410170938596.png" alt="image-20230410170938596"></p>
+<blockquote>
+<p><strong><code>考点：假设最高频率是4HZ，最低频率是2HZ，进行采样，至少采样多少赫兹，才能满足采样的要求？至少8赫兹</code></strong></p>
+</blockquote>
+<p><strong><code>重点记图</code></strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410171342548.png" alt="image-20230410171342548"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410171426297.png" alt="image-20230410171426297"></p>
+<blockquote>
+<p>极性编码了解即可</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410172833801.png" alt="image-20230410172833801"></p>
+<blockquote>
+<p><strong><code>重点掌握</code></strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410172752774.png" alt="image-20230410172752774"></p>
+<blockquote>
+<p><strong><code>重点掌握</code></strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410173142011.png" alt="image-20230410173142011"></p>
+<blockquote>
+<p><strong><code>上中下，下中上的来回跳</code></strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230410173513050.png" alt="image-20230410173513050"></p>
+<blockquote>
+<p><strong><code>考点：考查编码效率是多少。记忆方式：用4/5x100%=80，其他同理</code></strong></p>
+</blockquote>
+<h2 id="8、数据通信技术"><a href="#8、数据通信技术" class="headerlink" title="8、数据通信技术"></a>8、数据通信技术</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230411202256530.png" alt="image-20230411202256530"></p>
+<h3 id="数据通信计算（重点）"><a href="#数据通信计算（重点）" class="headerlink" title="数据通信计算（重点）"></a>数据通信计算（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412000744251.png" alt="image-20230412000744251"></p>
+<blockquote>
+<p><strong><code>信道带宽题目会给出</code></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><code>常用的传播速度是1和3，题目中不会给出，需记忆</code></strong></p>
+</blockquote>
+<p><strong><code>重点</code></strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412003128014.png" alt="image-20230412003128014"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412003504926.png" alt="image-20230412003504926"></p>
+<p><strong><code>重点</code></strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412004128956.png" alt="image-20230412004128956"></p>
+<p><strong><code>重点</code></strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412004649533.png" alt="image-20230412004649533"></p>
+<blockquote>
+<p><strong><code>题目中给出信噪比，就用香农定理，反之用奈奎斯定理</code></strong></p>
+<p><strong><code>常考奈奎斯定理</code></strong></p>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412004829387.png" alt="image-20230412004829387"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412110142386.png" alt="image-20230412110142386"></p>
+<blockquote>
+<p>注：2DPSK的码元种类是2；4DPSK的码元种类是4</p>
+</blockquote>
+<h3 id="数据交换方式"><a href="#数据交换方式" class="headerlink" title="数据交换方式"></a>数据交换方式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412111938256.png" alt="image-20230412111938256"></p>
+<blockquote>
+<p><strong><code>考点：以下哪些应用技术属于线路交换</code></strong></p>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412114133750.png" alt="image-20230412114133750"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412114231030.png" alt="image-20230412114231030"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412114318085.png" alt="image-20230412114318085"></p>
+<h3 id="多路复用技术"><a href="#多路复用技术" class="headerlink" title="多路复用技术"></a>多路复用技术</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412114634781.png" alt="image-20230412114634781"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412114913835.png" alt="image-20230412114913835"></p>
+<h3 id="数据检错与纠错（重点）"><a href="#数据检错与纠错（重点）" class="headerlink" title="数据检错与纠错（重点）"></a>数据检错与纠错（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412123123807.png" alt="image-20230412123123807"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412123431378.png" alt="image-20230412123431378"></p>
+<blockquote>
+<p><strong><code>注：是m+k+1&lt;=2的k次方，不是2k</code></strong></p>
+<p>海明码常考</p>
+<p>考点：假设5位的数据，那么至少添加多少位的冗余位？</p>
+<p>通过m+k+1&lt;&#x3D;2的k次方得，至少4位的冗余位</p>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412130519422.png" alt="image-20230412130519422"></p>
+<blockquote>
+<p><strong><code>监督关系式题目中会给出</code></strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412132641156.png" alt="image-20230412132641156"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412132656281.png" alt="image-20230412132656281"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230412132725842.png" alt="image-20230412132725842"></p>
+<h2 id="9、物理层与数据链路层"><a href="#9、物理层与数据链路层" class="headerlink" title="9、物理层与数据链路层"></a>9、物理层与数据链路层</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414154933112.png" alt="image-20230414154933112"></p>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414155951984.png" alt="image-20230414155951984"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414160246440.png" alt="image-20230414160246440"></p>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414160629088.png" alt="image-20230414160629088"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414161137814.png" alt="image-20230414161137814"></p>
+<h3 id="数据链路层与MAC地址"><a href="#数据链路层与MAC地址" class="headerlink" title="数据链路层与MAC地址"></a>数据链路层与MAC地址</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414162206661.png" alt="image-20230414162206661"></p>
+<h3 id="数据帧结构（重点）"><a href="#数据帧结构（重点）" class="headerlink" title="数据帧结构（重点）"></a>数据帧结构（重点）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414163720400.png" alt="image-20230414163720400"></p>
+<blockquote>
+<p>考点：0x0800表是IP包，0x0806表示ARP数据包</p>
+</blockquote>
+<blockquote>
+<p>考点：以太二帧字节范围64~1518</p>
+</blockquote>
+<blockquote>
+<p>以太二帧格式图（记忆）</p>
+</blockquote>
+<blockquote>
+<p>考点：数据帧最小长度为64字节</p>
+</blockquote>
+<blockquote>
+<p>考点：数据帧在发送时的数据帧长度为多少？还需加上7+1+12(字节)</p>
+</blockquote>
+<h3 id="IEEE-802标准（重点）"><a href="#IEEE-802标准（重点）" class="headerlink" title="IEEE 802标准（重点）"></a>IEEE 802标准（<code>重点</code>）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414165702001.png" alt="image-20230414165702001"></p>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414170258654.png" alt="image-20230414170258654"></p>
+<blockquote>
+<p>网桥是最原始的通信设备，二层交换机是网桥的升级版</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414171800087.png" alt="image-20230414171800087"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414171843648.png" alt="image-20230414171843648"></p>
+<blockquote>
+<p>考点：根据描述选择对应的接口</p>
+<p>Console接口也叫本地配置接口</p>
+</blockquote>
+<h3 id="数据链路层技术"><a href="#数据链路层技术" class="headerlink" title="数据链路层技术"></a>数据链路层技术</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230414172258914.png" alt="image-20230414172258914"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230417180306475.png" alt="image-20230417180306475"></p>
+<blockquote>
+<p><code>重点</code></p>
+<p>CSMA&#x2F;CD：用于冲突检测</p>
+<p><strong>考点：</strong>发生三次之后再发生冲突的概率？1&#x2F;8（计算公式：1&#x2F;2的n次方）</p>
+<ul>
+<li>发生一次之后再次发生冲突的概率是1&#x2F;2（第二次）</li>
+<li>发生两次之后再次发生冲突的概率是1&#x2F;4（第三次）</li>
+<li>发生三次之后再次发生冲突的概率是1&#x2F;8（第四次）</li>
+<li>发生四次之后再次发生冲突的概率是1&#x2F;16（第五次）</li>
+</ul>
+<p><strong>注：第一次发生冲突没有概率计算，从第二次开始计算</strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230417180902463.png" alt="image-20230417180902463"></p>
+<blockquote>
+<p>考点：考查公式计算</p>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230417181956813.png" alt="image-20230417181956813"></p>
+<blockquote>
+<p>考点：让你选择说法错误的，类似如下说法：比如信息帧和监控帧都携带发送序列号（错误）</p>
+<p><strong><code>考点：发送顺序号和接受顺序号占了多少个比特也是重点</code></strong></p>
+<ul>
+<li>发送顺序号和接受顺序号各占了3个比特，范围是0~7</li>
+</ul>
+<p>考点：SABME帧类型存在于无编号帧</p>
+<p><strong><code>上述图例（记忆）</code></strong></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230417183508308.png" alt="image-20230417183508308"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230417183725396.png" alt="image-20230417183725396"></p>
+<h3 id="知识补充-2"><a href="#知识补充-2" class="headerlink" title="知识补充"></a>知识补充</h3><blockquote>
+<p>路由器每一个接口是一个广播域</p>
+<p>集线器的所有接口都属于一个冲突域</p>
+<p>交换机的每一个接口是一个冲突域</p>
+</blockquote>
+<blockquote>
+<p>超五类双绞线主要用于千兆位以太网（最高传输带宽1000Mbps）。</p>
+</blockquote>
+<blockquote>
+<p>100Base—T4所采用编码的编码效率为6B&#x2F;8B（75%	）</p>
+</blockquote>
+<blockquote>
+<p>PPP协议特点：</p>
+<ul>
+<li>PPP支持IP协商</li>
+<li>支持多种网络协议</li>
+<li>PPP具有数据错误检测功能，不具有纠错功能</li>
+<li>PPP是不可靠传输协议</li>
+<li>没有重传机制，网络开销小</li>
+<li>PPP具有身份验证功能，可以在多种物理介质上传输</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>生成树选举中，决定选举为根桥的参数是桥ID</p>
+</blockquote>
+<blockquote>
+<p>VLAN帧结构中，VLAN ID字段长度为12b，VLAN数量为2的12次方（4096），范围是0<del>4095，0和4095这两个VLAN不能使用，实际是 1</del>4094</p>
+</blockquote>
+<blockquote>
+<p>查看交换机的所有端口信息命令：display interface brief</p>
+</blockquote>
+<blockquote>
+<p>用于生成树计算协商的报文是BPDU报文</p>
+</blockquote>
+<h2 id="10、网络层地址"><a href="#10、网络层地址" class="headerlink" title="10、网络层地址"></a>10、网络层地址</h2><h3 id="IP地址基本概念"><a href="#IP地址基本概念" class="headerlink" title="IP地址基本概念"></a>IP地址基本概念</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506161511411.png" alt="image-20230506161511411"></p>
+<blockquote>
+<p>2的八次方是256</p>
+</blockquote>
+<h3 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506161939223.png" alt="image-20230506161939223"></p>
+<blockquote>
+<p>A类、B类、C类地址记忆</p>
+<p>考点：考查下列哪个属于具体的哪类公有地址或者私有地址。</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506163448549.png" alt="image-20230506163448549"></p>
+<blockquote>
+<p>考点：第三个常考概念</p>
+</blockquote>
+<h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506171231354.png" alt="image-20230506171231354"></p>
+<blockquote>
+<p>在相同的广播域，它们的IP地址为同一个网段</p>
+<p>子网掩码是可以判断两个IP地址是否在同一个网段</p>
+<p>在同一网段通信，属于二层通信；在不同网段或者不同广播域通信，属于三层通信，三层通信通过路由进行通信</p>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506172655020.png" alt="image-20230506172655020"></p>
+<h3 id="网络地址与广播地址"><a href="#网络地址与广播地址" class="headerlink" title="网络地址与广播地址"></a>网络地址与广播地址</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506172923720.png" alt="image-20230506172923720"></p>
+<h3 id="IP子网划分"><a href="#IP子网划分" class="headerlink" title="IP子网划分"></a>IP子网划分</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506180339567.png" alt="image-20230506180339567"></p>
+<blockquote>
+<p>子网掩码也称之为无类，无类就是不分A、B、C类地址</p>
+<p>A、B、C类地址称为主类</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506180319324.png" alt="image-20230506180319324"></p>
+<blockquote>
+<p>传统计算方式</p>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506180734614.png" alt="image-20230506180734614"></p>
+<blockquote>
+<p>推荐计算方式，同理：192.168.1.0&#x2F;24划分为4个网段，写出网段范围和掩码</p>
+<p>256 &#x2F; 4 &#x3D; 64 ，那么网段范围为：</p>
+<ul>
+<li>0 ~ 63</li>
+<li>64 ~ 127</li>
+<li>128 ~ 191</li>
+<li>192 ~ 255</li>
+</ul>
+<p>256 - 64 &#x3D; 192，那么掩码为255.255.255.192，掩码长度为&#x2F;26</p>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506182112865.png" alt="image-20230506182112865"></p>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506182618148.png" alt="image-20230506182618148"></p>
+<blockquote>
+<p>192.168.1.128&#x2F;25已经进行了一次子网划分，就相对于通过192.168.1.0这个网段进行了一次子网划分，上述例题3属于多次子网划分</p>
+<p><strong>个人总结：</strong>192.168.1.128&#x2F;25网段是经过192.168.1.0&#x2F;24划分子网而成，因为192.168.1.0&#x2F;24网段有256个IP，又因为掩码25比24多了1个比特，2的一次方，所以是192.168.1.0&#x2F;24划分了2个网段得到的192.168.1.128&#x2F;25网段，那么192.168.1.128&#x2F;25网段有128个IP</p>
+<p>划分子网就是划分网段	</p>
+</blockquote>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506225802405.png" alt="image-20230506225802405"></p>
+<h3 id="IP超网汇总"><a href="#IP超网汇总" class="headerlink" title="IP超网汇总"></a>IP超网汇总</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506230642225.png" alt="image-20230506230642225"></p>
+<p><code>重点</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230506230713678.png" alt="image-20230506230713678"></p>
+<h3 id="知识补充-3"><a href="#知识补充-3" class="headerlink" title="知识补充"></a>知识补充</h3><blockquote>
+<p>通过查看路由表，问路由条目数量是多少时？ 直接看路由表上的router显示的是多少？</p>
+</blockquote>
+<blockquote>
+<p>查看路由表的命令是display ip routing-table</p>
+</blockquote>
+<blockquote>
+<p>第一次通信的方式是广播</p>
+</blockquote>
+<blockquote>
+<p>DMZ：DMZ是为了解决安装防火墙后外部网络的访问用户不能访问内部网络服务器的问题，而设立的一个非安全系统与安全系统之间的缓冲区，<strong>要比外网的安全性要高，比内网的安全性要低</strong></p>
+<p>防火墙与服务器相连接的区域属于DMZ</p>
+</blockquote>
+<blockquote>
+<p>无线接入区域可以通过哪些方式来保证无线网络接入的安全？（至少写出 2 种）</p>
+<p>（1）隐藏 SSID </p>
+<p>（2）无线接入加密 </p>
+<p>（3）设置 MAC 地址黑名单 </p>
+<p>（4）无线认证技术</p>
+</blockquote>
+<blockquote>
+<p>SQL 注入攻击，需要部署WAF来进行防护</p>
+<p>DDoS 攻击，需要部署流量清洗设备来进行防护</p>
+</blockquote>
+<blockquote>
+<p>2.4GHz频段我们能用的信道只有三个：1、6、11，最优的部署模式保证相邻的两个信道没有重叠的原则</p>
+</blockquote>
+<blockquote>
+<p><strong>802.3af标准的受电设备功率是13 ~ 15W之间，802.3at标准的受电设备功率是25~35W之间，供电体就是交换机，受电体就是AP</strong></p>
+</blockquote>
+<blockquote>
+<p>LLDP协商方式供电：通过这个协议发现对面的设备AP上线就自动供电</p>
+</blockquote>
+<blockquote>
+<p>NAS存储方法基于<strong>文件的方式</strong>，DAS存储基于<strong>块的方式</strong></p>
+</blockquote>
+<blockquote>
+<p>IPSec可以配置为两种不同的模式，即<strong>隧道模式和传输模式</strong></p>
+<p>传输模式是两个公网地址之间建立隧道</p>
+<p>隧道模式是两个私有地址通过公网去建立</p>
+</blockquote>
+<blockquote>
+<p>配置策略路由有三大步：流分类、流行为、流策略</p>
+</blockquote>
+<blockquote>
+<p>在IPS中有两种攻击的分类：</p>
+<ul>
+<li>单包攻击</li>
+<li>泛红攻击（像TCP、flood、UDP就是泛红攻击）</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>nslookup命令的作用：域名解析	</p>
+</blockquote>
+<blockquote>
+<p>磁盘文件的分配以簇（Cluster）为单位。</p>
+</blockquote>
+<blockquote>
+<p>路由是将数据包从源地址传递到目标地址的过程，通过路由器或交换机等网络设备来实现。</p>
+</blockquote>
+<blockquote>
+<p>直接连接的设备通常不需要单独配置静态路由。这是因为直接连接的设备已经通过物理连接直接连接到目标网络，可以直接将数据包发送到该网络，而无需经过其他路由器或中间设备。</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230517134535103.png" alt="image-20230517134535103"></p>
+<blockquote>
+<p>假如AR1的下一跳地址是10.1.1.2，那么路由器在转发数据的时候，它是要进行一次递归查询（迭代查询），查询AR1到达下一跳地址有没有对应的路由，AR1到达下一跳地址10.1.1.2是一条直连路由，所以有对应的路由，递归查询成功实现了AR1 与办公部门通信</p>
+<p>假如AR1的下一跳地址是11.1.1.2，路由器要进行一次递归查询，发现没有对应的路由，是因为我们并没有在AR1上配置到达11.1.1.0这个网段的路由，递归查询失败是无法实现AR1 与办公部门通信，若要查询成功，则配置AR1到达11.1.1.0网段的路由（ip route-static 11.1.1.0 24 10.1.1.2）</p>
+<p>在路由表中有一个flags字段，flags	字段中有R标记的表示需要被递归查询的路由</p>
+</blockquote>
+<blockquote>
+<p>若连接外网且企业内部是三层网络设备，一定要有默认路由，三层设备有路由器、汇聚交换机</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230517163119895.png" alt="image-20230517163119895"></p>
+<blockquote>
+<p>通常在网络中，网络内部运行了OSPF，然后又有边界设备需要连公网，那么这个网络中的三层网络设备都要有默认路由，该如何配置？首先在AR1上配置指向公网的默认路由，然后在AR1上下发一条默认路由给自己的邻居AR4和AR5（AR1 上配置default-route-advertise always命令），如果不加always参数，AR1必须自己本身有一条默认路由，才可以通过default-route-advertise把默认路由下发给AR4和AR5，若AR1自己本身没有一条默认路由，AR4和AR5是收不到默认路由的，优先级是150 ，为什么在AR1上去配这个命令，是因为AR1去下发默认路由给AR4和AR5，那这个默认路由指向AR1，因为AR1是边界设备，通过边界设备上网</p>
+</blockquote>
+<blockquote>
+<p>如果 OSPF 域内其他路由器同样有到达外网的路径，且优于通过 AR1 到达外网，则需要在该命令后增加什么参数配置?修改cost值，来影响选路</p>
+</blockquote>
+<blockquote>
+<p>使 RIP 路由域与 OSPF 路由域互通，需要在哪台设备上配置什么命令?</p>
+<p>import-route rip</p>
+<p>import-route ospf</p>
+</blockquote>
+<blockquote>
+<p>ACL可以用于数据的访问控制，可以用于抓取路由；前缀列表只能用于抓取路由；filter policy是用于路由过滤列表；route policy是进行路由过滤，在引入其他路由协议，只能用route policy</p>
+</blockquote>
+<blockquote>
+<p>如果不需要 arer 1 和 area 2 区域内部主机收到路由更新信息，可以在 AR4 和 AR5 设备配置什么命令?</p>
+<p>silent-interface g2&#x2F;0&#x2F;0 &#x2F;&#x2F; 配置静默接口</p>
+</blockquote>
+<blockquote>
+<p>网关地址就是主机ip地址</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">燃烧的炸弹猫</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/1.html">http://example.com/posts/1.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">燃烧的炸弹猫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://img1.imgtp.com/2023/06/22/ktGqYmEt.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/0.html" title="剪辑技巧"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.imgtp.com/2023/06/24/54foOJHF.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">剪辑技巧</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.imgtp.com/2023/06/22/ExfAMpG5.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">燃烧的炸弹猫</div><div class="author-info__description">一个知识博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ZHDBurning"><i class="fab fa-github"></i><span>前往小家..</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E7%BD%91%E7%BB%9C%E4%BA%92%E8%81%94"><span class="toc-text">1、网络互联</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">路由器工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMP%E5%8D%8F%E8%AE%AE%EF%BC%88ping%E5%91%BD%E4%BB%A4%E5%B0%B1%E6%98%AF%E9%81%B5%E5%BE%AA%E4%BA%86ICMP%E5%8D%8F%E8%AE%AE%EF%BC%89%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">ICMP协议（ping命令就是遵循了ICMP协议）（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">ARP协议原理（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E5%90%91ARP%E5%8D%8F%E8%AE%AE%EF%BC%88RARP%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-text">逆向ARP协议（RARP协议）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84"><span class="toc-text">IPv4报文结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">路由协议基本概念（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VLAN%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text">VLAN间通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E9%BB%98%E8%AE%A4%E8%B7%AF%E7%94%B1%EF%BC%88%E8%80%83%E6%9F%A5%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">静态路由与默认路由（考查重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%BF%AD%E4%BB%A3"><span class="toc-text">路由迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E8%B7%AF%E7%94%B1%E4%B8%8E%E7%AD%89%E4%BB%B7%E8%B7%AF%E7%94%B1"><span class="toc-text">浮动路由与等价路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8BFD%E5%B7%A5%E5%85%B7%E5%AE%9E%E7%8E%B0%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%9C%E7%AB%AF%E7%9B%91%E6%8E%A7"><span class="toc-text">使用BFD工具实现静态路由的远端监控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RIP%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE"><span class="toc-text">RIP路由协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A3%E5%91%8A%E6%96%B9%E5%BC%8F"><span class="toc-text">宣告方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RIP%E9%98%B2%E7%8E%AF%E6%9C%BA%E5%88%B6%E5%92%8CRIP%E8%B7%AF%E7%94%B1%E8%AE%A1%E6%97%B6%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">RIP防环机制和RIP路由计时器（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">OSPF路由协议（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%9F%9F%E7%B1%BB%E5%9E%8B%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">区域类型（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E8%AE%BE%E5%A4%87%E7%B1%BB%E5%9E%8B%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">OSPF设备类型（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#router-ID%E9%80%89%E4%B8%BE"><span class="toc-text">router ID选举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DR%E5%92%8CBDR%E7%9A%84%E9%80%89%E4%B8%BE%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">DR和BDR的选举（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E7%9A%84LSA%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%89%B9%E6%AE%8A%E5%8C%BA%E5%9F%9F"><span class="toc-text">OSPF的LSA类型与特殊区域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E5%AE%A3%E5%91%8A%E6%96%B9%E5%BC%8F"><span class="toc-text">OSPF宣告方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IS-IS%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%9A%E6%8E%8C%E6%8F%A1%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%89"><span class="toc-text">IS-IS路由协议（重点：掌握基本概念）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E6%96%87%E7%B1%BB%E5%9E%8B"><span class="toc-text">报文类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E8%8A%82%E7%82%B9DIS%E7%9A%84%E9%80%89%E4%B8%BE"><span class="toc-text">伪节点DIS的选举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%A6%E9%87%8F%E5%80%BC%EF%BC%88cost%EF%BC%89"><span class="toc-text">度量值（cost）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A3%E5%91%8A%E6%96%B9%E5%BC%8F-1"><span class="toc-text">宣告方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%B8%97%E9%80%8F"><span class="toc-text">路由渗透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGP%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE"><span class="toc-text">BGP路由协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGP%E8%B7%AF%E7%94%B1%E5%B1%9E%E6%80%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">BGP路由属性（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGP%E9%98%B2%E7%8E%AF%E6%9C%BA%E5%88%B6%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">BGP防环机制（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%94%B1%E4%BA%8E%E9%98%B2%E7%8E%AF%E6%9C%BA%E5%88%B6%E8%80%8C%E5%AF%BC%E8%87%B4%E7%9A%84%E6%97%A0%E6%B3%95%E4%BC%A0%E9%80%92%E8%B7%AF%E7%94%B1%E9%97%AE%E9%A2%98"><span class="toc-text">解决由于防环机制而导致的无法传递路由问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGP%E9%80%89%E8%B7%AF%E5%8E%9F%E5%88%99"><span class="toc-text">BGP选路原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGP%E8%B7%AF%E7%94%B1%E7%9A%84%E7%94%9F%E6%88%90%E6%96%B9%E5%BC%8F"><span class="toc-text">BGP路由的生成方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGP%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-text">BGP基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RIP%E8%B7%AF%E7%94%B1%E8%BF%87%E6%BB%A4"><span class="toc-text">RIP路由过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E8%B7%AF%E7%94%B1%E8%BF%87%E6%BB%A4"><span class="toc-text">OSPF路由过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IS-IS%E8%B7%AF%E7%94%B1%E8%BF%87%E6%BB%A4"><span class="toc-text">IS-IS路由过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGP%E8%B7%AF%E7%94%B1%E8%BF%87%E6%BB%A4"><span class="toc-text">BGP路由过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RIP%E8%B7%AF%E7%94%B1%E6%B1%87%E6%80%BB"><span class="toc-text">RIP路由汇总</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E8%B7%AF%E7%94%B1%E6%B1%87%E6%80%BB"><span class="toc-text">OSPF路由汇总</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IS-IS%E8%B7%AF%E7%94%B1%E6%B1%87%E6%80%BB"><span class="toc-text">IS-IS路由汇总</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGP%E8%B7%AF%E7%94%B1%E6%B1%87%E6%80%BB"><span class="toc-text">BGP路由汇总</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%BC%95%E5%85%A5"><span class="toc-text">路由引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGP%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">BGP路由表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ACL%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%88%97%E8%A1%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">ACL访问控制列表（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NAT%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">NAT地址转换（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VRRP%E7%BD%91%E5%85%B3%E5%86%97%E4%BD%99%E5%8D%8F%E8%AE%AE"><span class="toc-text">VRRP网关冗余协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PBR%E7%AD%96%E7%95%A5%E8%B7%AF%E7%94%B1"><span class="toc-text">PBR策略路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6%E7%9A%84%E5%9C%B0%E5%9D%80%E6%A0%BC%E5%BC%8F%E5%8F%8A%E5%88%86%E7%B1%BB"><span class="toc-text">IPv6的地址格式及分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="toc-text">IPv6表示方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6%E5%9C%B0%E5%9D%80%E8%8C%83%E5%9B%B4"><span class="toc-text">IPv6地址范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4%E7%89%B9%E6%AE%8A%E5%9C%B0%E5%9D%80"><span class="toc-text">IPv4特殊地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6%E8%BF%87%E6%B8%A1%E6%8A%80%E6%9C%AF"><span class="toc-text">IPv6过渡技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84"><span class="toc-text">IPv6报文结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85"><span class="toc-text">知识补充</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-text">2、传输层协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84"><span class="toc-text">TCP报文结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84"><span class="toc-text">UDP报文结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E5%8D%8F%E8%AE%AE%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">TCP协议三次握手与四次握手（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E8%BF%9E%E6%8E%A5%E7%8A%B6%E6%80%81"><span class="toc-text">TCP连接状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E5%8D%8F%E8%AE%AE%E5%9B%9B%E5%A4%A7%E6%9C%BA%E5%88%B6"><span class="toc-text">TCP协议四大机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="toc-text">常见应用端口号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85-1"><span class="toc-text">知识补充</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%BA%94%E7%94%A8%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-text">3、应用层协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">DNS服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%B8%B8%E8%80%83%EF%BC%89"><span class="toc-text">DNS查询方式（常考）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E6%9C%BA%E6%9F%A5%E8%AF%A2DNS%E9%A1%BA%E5%BA%8F"><span class="toc-text">客户机查询DNS顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95%EF%BC%88%E5%B8%B8%E8%80%83%EF%BC%89"><span class="toc-text">DNS资源记录（常考）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">DHCP服务器（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DHCP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">DHCP工作原理（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%AD%E7%A7%9F%E7%A7%9Fip%E5%9C%B0%E5%9D%80"><span class="toc-text">续租租ip地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#option-id"><span class="toc-text">option id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FTP%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">FTP服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FTP%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-text">FTP的连接方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FTP%E8%B4%A6%E6%88%B7%E6%9D%83%E9%99%90"><span class="toc-text">FTP账户权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">邮件服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">web服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="toc-text">缓存数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84http%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81"><span class="toc-text">常见的http错误代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">web代理服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%97%A0%E7%BA%BF%E6%8E%A5%E5%85%A5%E6%8A%80%E6%9C%AF"><span class="toc-text">4、无线接入技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF"><span class="toc-text">无线局域网技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSMA-x2F-CA%EF%BC%88%E5%86%B2%E7%AA%81%E9%81%BF%E5%85%8D%EF%BC%89"><span class="toc-text">CSMA&#x2F;CA（冲突避免）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AC%E6%97%A0%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8-AP%E8%8A%82%E7%82%B9%E7%9A%84%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84"><span class="toc-text">AC无线控制器+AP节点的无线网络架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AC%E6%A8%A1%E5%BC%8F"><span class="toc-text">AC模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8%E8%BD%AC%E5%8F%91%E6%A8%A1%E5%BC%8F"><span class="toc-text">无线控制器转发模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E5%8A%A0%E5%AF%86"><span class="toc-text">无线加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88"><span class="toc-text">客户端认证方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AP%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="toc-text">AP的种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AP%E7%9A%84%E9%83%A8%E7%BD%B2%E4%BB%A5%E5%8F%8A%E6%97%A0%E7%BA%BF%E6%BC%AB%E6%B8%B8%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-text">AP的部署以及无线漫游的条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AP%E7%9A%84%E4%BE%9B%E7%94%B5%E6%96%B9%E5%BC%8F"><span class="toc-text">AP的供电方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF"><span class="toc-text">广域网技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5%E7%BD%91%E6%8A%80%E6%9C%AF"><span class="toc-text">接入网技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPP%E4%B8%8EPPPoE%E6%8A%80%E6%9C%AF-%E9%87%8D%E7%82%B9"><span class="toc-text">PPP与PPPoE技术(重点)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8"><span class="toc-text">5、网络安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">网络攻击（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E7%B1%BB%E5%9E%8B"><span class="toc-text">常见网络攻击类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%AE%BE%E5%A4%87"><span class="toc-text">网络安全设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6"><span class="toc-text">数字证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VPN%E6%8A%80%E6%9C%AF"><span class="toc-text">VPN技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8"><span class="toc-text">6、网络存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E4%BB%8B%E8%B4%A8"><span class="toc-text">存储介质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97%E6%8A%80%E6%9C%AF%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">磁盘阵列技术（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-text">网络存储设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%BD%91%E7%BB%9C"><span class="toc-text">存储网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80"><span class="toc-text">7、网络基础与数据通信基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF%E5%88%86%E7%B1%BB%E4%B8%8E%E6%A8%A1%E5%9E%8B"><span class="toc-text">计算机网路分类与模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%9F%BA%E6%9C%AC%E5%8D%95%E4%BD%8D"><span class="toc-text">网络通信基本单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80"><span class="toc-text">网络通信基础</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E3%80%81%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%8A%80%E6%9C%AF"><span class="toc-text">8、数据通信技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E8%AE%A1%E7%AE%97%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">数据通信计算（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="toc-text">数据交换方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-text">多路复用技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%A3%80%E9%94%99%E4%B8%8E%E7%BA%A0%E9%94%99%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">数据检错与纠错（重点）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9%E3%80%81%E7%89%A9%E7%90%86%E5%B1%82%E4%B8%8E%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">9、物理层与数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E4%B8%8EMAC%E5%9C%B0%E5%9D%80"><span class="toc-text">数据链路层与MAC地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%B8%A7%E7%BB%93%E6%9E%84%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">数据帧结构（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IEEE-802%E6%A0%87%E5%87%86%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">IEEE 802标准（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%8A%80%E6%9C%AF"><span class="toc-text">数据链路层技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85-2"><span class="toc-text">知识补充</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E3%80%81%E7%BD%91%E7%BB%9C%E5%B1%82%E5%9C%B0%E5%9D%80"><span class="toc-text">10、网络层地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">IP地址基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB"><span class="toc-text">IP地址分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="toc-text">子网掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E4%B8%8E%E5%B9%BF%E6%92%AD%E5%9C%B0%E5%9D%80"><span class="toc-text">网络地址与广播地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="toc-text">IP子网划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E8%B6%85%E7%BD%91%E6%B1%87%E6%80%BB"><span class="toc-text">IP超网汇总</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85-3"><span class="toc-text">知识补充</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 燃烧的炸弹猫</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
