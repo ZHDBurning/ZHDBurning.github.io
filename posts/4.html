@@ -1,18 +1,19 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>网络工程师 | 燃烧的炸弹猫</title><meta name="author" content="燃烧的炸弹猫"><meta name="copyright" content="燃烧的炸弹猫"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="1、网络的基本概念 R&amp;S&#x3D;路由交换 Datacom&#x3D;数通&#x3D;数据通信  数据通信：某个设备产生了数据之后，借助整体的网络到达目的地的过程。    网络历史 ——- 数通为什么产生？  1946年：世界上第一台计算机诞生。军事 科研 —– 高速运算 1962年：古巴导弹危机 1969年：美国国防部高级研究计划署ARPA “巨型网络” —- ARPAnet 阿帕网">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ACL | 燃烧的炸弹猫</title><meta name="author" content="燃烧的炸弹猫"><meta name="copyright" content="燃烧的炸弹猫"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="ACL为什么使用ACL 为了企业的业务安全,要求不同部门对服务器有不同的权限  现网中,实现流量访问控制的方法有两种  控制路由条目——在数据包转发路径上的三层设备上，通过路由策略，拒绝路由条目，从而确保数据包无法互通 控制数据包转发——在数据包转发路径上的任何一个设备的接口下，调用专门的“流量控制工具”，比如 ACL    什么是ACL ACL的概述：ACL，是Access Control Li">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络工程师">
+<meta property="og:title" content="ACL">
 <meta property="og:url" content="http://example.com/posts/4.html">
 <meta property="og:site_name" content="燃烧的炸弹猫">
-<meta property="og:description" content="1、网络的基本概念 R&amp;S&#x3D;路由交换 Datacom&#x3D;数通&#x3D;数据通信  数据通信：某个设备产生了数据之后，借助整体的网络到达目的地的过程。    网络历史 ——- 数通为什么产生？  1946年：世界上第一台计算机诞生。军事 科研 —– 高速运算 1962年：古巴导弹危机 1969年：美国国防部高级研究计划署ARPA “巨型网络” —- ARPAnet 阿帕网">
+<meta property="og:description" content="ACL为什么使用ACL 为了企业的业务安全,要求不同部门对服务器有不同的权限  现网中,实现流量访问控制的方法有两种  控制路由条目——在数据包转发路径上的三层设备上，通过路由策略，拒绝路由条目，从而确保数据包无法互通 控制数据包转发——在数据包转发路径上的任何一个设备的接口下，调用专门的“流量控制工具”，比如 ACL    什么是ACL ACL的概述：ACL，是Access Control Li">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img1.imgtp.com/2023/07/19/D6j0fTJu.jpg">
-<meta property="article:published_time" content="2023-07-19T01:14:00.000Z">
-<meta property="article:modified_time" content="2023-07-19T01:55:03.378Z">
+<meta property="og:image" content="https://pic.imgdb.cn/item/654b439fc458853aef5ccb19.jpg">
+<meta property="article:published_time" content="2023-07-20T01:14:00.000Z">
+<meta property="article:modified_time" content="2023-11-08T08:15:35.317Z">
 <meta property="article:author" content="燃烧的炸弹猫">
-<meta property="article:tag" content="网络工程师">
 <meta property="article:tag" content="知识笔记">
+<meta property="article:tag" content="ACL">
+<meta property="article:tag" content="访问控制列表">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img1.imgtp.com/2023/07/19/D6j0fTJu.jpg"><link rel="shortcut icon" href="https://img1.imgtp.com/2023/06/22/ExfAMpG5.jpg"><link rel="canonical" href="http://example.com/posts/4.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/654b439fc458853aef5ccb19.jpg"><link rel="shortcut icon" href="https://img1.imgtp.com/2023/06/22/ExfAMpG5.jpg"><link rel="canonical" href="http://example.com/posts/4.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
@@ -54,12 +55,12 @@
   },
   autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '网络工程师',
+  title: 'ACL',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-07-19 09:55:03'
+  postUpdate: '2023-11-08 16:15:35'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -146,647 +147,68 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.imgtp.com/2023/06/22/ExfAMpG5.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-kunnanjinguidang"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-kunnanjinguidang"></use></svg><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-biaoqianpai"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqianpai"></use></svg><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-shoukuanfenlei"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-shoukuanfenlei"></use></svg><span> 分类</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liebiao"></use></svg><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yinle">                   </use></svg><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/photo/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><i class="fa-fw icon-liuyanban"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liuyanban"></use></svg><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-lianjie"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-lianjie"></use></svg><span> 友链</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-mianxingxinxingzuanshishuijing"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-mianxingxinxingzuanshishuijing"></use></svg><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img1.imgtp.com/2023/07/19/D6j0fTJu.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="燃烧的炸弹猫"><span class="site-name">燃烧的炸弹猫</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-kunnanjinguidang"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-kunnanjinguidang"></use></svg><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-biaoqianpai"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqianpai"></use></svg><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-shoukuanfenlei"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-shoukuanfenlei"></use></svg><span> 分类</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liebiao"></use></svg><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yinle">                   </use></svg><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/photo/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><i class="fa-fw icon-liuyanban"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liuyanban"></use></svg><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-lianjie"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-lianjie"></use></svg><span> 友链</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-mianxingxinxingzuanshishuijing"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-mianxingxinxingzuanshishuijing"></use></svg><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">网络工程师</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-19T01:14:00.000Z" title="发表于 2023-07-19 09:14:00">2023-07-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-19T01:55:03.378Z" title="更新于 2023-07-19 09:55:03">2023-07-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E9%9B%86%E5%90%88/">网络工程师知识集合</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>24分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="网络工程师"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="1、网络的基本概念"><a href="#1、网络的基本概念" class="headerlink" title="1、网络的基本概念"></a>1、网络的基本概念</h2><blockquote>
-<p>R&amp;S&#x3D;路由交换</p>
-<p>Datacom&#x3D;数通&#x3D;数据通信</p>
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic.imgdb.cn/item/654b452cc458853aef60e7d7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-kunnanjinguidang"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-kunnanjinguidang"></use></svg><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-biaoqianpai"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqianpai"></use></svg><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-shoukuanfenlei"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-shoukuanfenlei"></use></svg><span> 分类</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liebiao"></use></svg><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yinle">                   </use></svg><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/photo/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><i class="fa-fw icon-liuyanban"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liuyanban"></use></svg><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-lianjie"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-lianjie"></use></svg><span> 友链</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-mianxingxinxingzuanshishuijing"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-mianxingxinxingzuanshishuijing"></use></svg><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/654b439fc458853aef5ccb19.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="燃烧的炸弹猫"><span class="site-name">燃烧的炸弹猫</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-kunnanjinguidang"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-kunnanjinguidang"></use></svg><span> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-biaoqianpai"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqianpai"></use></svg><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-shoukuanfenlei"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-shoukuanfenlei"></use></svg><span> 分类</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liebiao"></use></svg><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yinle">                   </use></svg><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/photo/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><i class="fa-fw icon-liuyanban"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liuyanban"></use></svg><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-lianjie"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-lianjie"></use></svg><span> 友链</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-mianxingxinxingzuanshishuijing"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-mianxingxinxingzuanshishuijing"></use></svg><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ACL</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-20T01:14:00.000Z" title="发表于 2023-07-20 09:14:00">2023-07-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-08T08:15:35.317Z" title="更新于 2023-11-08 16:15:35">2023-11-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ACL%E7%9F%A5%E8%AF%86%E8%AF%A6%E8%A7%A3/">ACL知识详解</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">656</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ACL"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="ACL"><a href="#ACL" class="headerlink" title="ACL"></a>ACL</h2><h3 id="为什么使用ACL"><a href="#为什么使用ACL" class="headerlink" title="为什么使用ACL"></a>为什么使用ACL</h3><blockquote>
+<p>为了企业的业务安全,要求不同部门对服务器有不同的权限</p>
+<blockquote>
+<p>现网中,实现流量访问控制的方法有两种</p>
 <ul>
-<li>数据通信：某个设备产生了数据之后，借助整体的网络到达目的地的过程。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>网络历史 ——- 数通为什么产生？</p>
-<ul>
-<li>1946年：世界上第一台计算机诞生。军事 科研 —– 高速运算</li>
-<li>1962年：古巴导弹危机</li>
-<li>1969年：美国国防部高级研究计划署ARPA “巨型网络” —- ARPAnet 阿帕网</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>厂商垄断 —— 不能大规模普及 IBM</p>
-<p>每个厂商都单独定义标准</p>
-<p>问题：网络没有标准</p>
-<ul>
-<li><p>1977年：TCP&#x2F;IP架构（标准）</p>
-</li>
-<li><p>1980年：ARPAnet全面向TCP&#x2F;IP架构进行迁移</p>
-</li>
-<li><p>1984年：ISO —- 国际标准化组织机构（定义各行各业的标准）</p>
-<p>​					OSI：开放式系统互联</p>
-<p>​					同时，TCP&#x2F;IP模型全面推出</p>
-</li>
-</ul>
-<p>工业标准：设备上使用的是通信型的标准TCP&#x2F;IP</p>
-</blockquote>
-<blockquote>
-<p>总结：为什么要制定网络模型？</p>
-<ul>
-<li>统一化</li>
-<li>分层管理</li>
-<li>故障定位比较明确</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>OSI：7层模型</p>
-<p>7：应用层</p>
-<p>6：表示层</p>
-<p>5：会话层</p>
-<p>4：传输层</p>
-<p><strong><code>3：网络层</code></strong></p>
-<p><strong><code>2：数据链路层</code></strong></p>
-<p>1：物理层</p>
-</blockquote>
-<blockquote>
-<p>TCP&#x2F;IP模型</p>
-<p>4：应用层</p>
-<p>3：传输层</p>
-<p>2：网络层</p>
-<p>1：网络接口层</p>
-</blockquote>
-<blockquote>
-<p>TCP协议：传输控制协议</p>
-<p>IP协议：互联网协议</p>
-</blockquote>
-<blockquote>
-<p>服务器的组成：硬件、x86、电源、内存、cpu、风扇、硬盘</p>
-<p>pc：办公、上网、娱乐、打游戏</p>
-<p>服务器：一直开机，存放文件和数据，对外提供访问，相对于一台高性能的pc</p>
-<blockquote>
-<p>注：服务器不一定是一台普通的个人电脑（PC）。首先，服务器通常需要更高的性能和可靠性，因为它们需要处理更多的请求和数据。例如，一个承载高流量网站的服务器需要比一个普通的个人电脑拥有更强大的处理能力、更大的内存容量和更快的网络连接速度等。</p>
-<p>其次，服务器通常需要更特殊的硬件和软件来支持其特殊的功能。例如，一台用于托管数据库的服务器通常需要更快的硬盘驱动器和更专业的数据库管理软件，而一台用于托管网站的服务器则需要更专业的Web服务器软件和安全性能。</p>
-<p>此外，服务器通常会运行在一种以稳定性和安全性为重点的操作系统上，例如Linux或Windows Server等，以确保其运行稳定性和安全性。相比之下，大多数个人电脑运行的是桌面操作系统，例如Windows或MacOS，它们的设计目标更侧重于用户友好性和易用性。</p>
-<p>综上所述，虽然服务器和个人电脑都是计算机系统，但由于它们的设计目标不同，所以它们在硬件、软件和操作系统等方面存在很大的差异。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>ISP &#x3D; 运营商（互联网服务的提供商），通常以一朵云代表一个运营商</p>
-</blockquote>
-<blockquote>
-<p>翻墙（又称“穿越长城”）是指通过使用网络代理或虚拟专用网络（VPN）等技术，从国内网络环境连接到国外网络环境。这个“墙”指的是中国政府实施的互联网审查和过滤系统，也就是俗称的“防火长城”。</p>
-<p>在中国，政府对互联网进行了广泛的监管和审查，限制了许多国外的网站和服务。这些限制包括阻止人们访问一些社交媒体、新闻网站以及搜索引擎等。因此，有些人通过翻墙的方式来绕过这些限制，以便能够访问被屏蔽的网站和服务。</p>
-<p>需要注意的是，翻墙可能违反当地法律法规，并且可能会导致安全和隐私问题。因此，在决定是否翻墙时，需要根据自己的情况权衡利弊，并采取必要的安全措施。 </p>
-</blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230609013453099.png" alt="image-20230609013453099"></p>
-<blockquote>
-<p>局域网 &#x3D; 私网 &#x3D; 内网</p>
-<blockquote>
-<p>局域网：指地理位置相对比较近并且为一个统一 的业务提供一些服务，通常将自己内部构建的网络称之为一个局域网，也叫内网 ，比如：公司内部的网络、家里连一个tp—link的路由器，让手机上网。 </p>
-</blockquote>
-<p>城域网：在一个城市范围之内的网络，城市内的设备互联，称之为城域网。</p>
-<p>广域网：提供全世界范围内的设备的互联，称之为广域网</p>
-<blockquote>
-<p>现在有些地方和教材会把城域网和广域网进行合并，统称为广域网，因为一个城域网内，是多个局域网进行互联，是要接入运营商的， 只要接入了运营商的网络都可以称之为广域网，<strong>反之，如果整体数据的流量不经过广域网，只在一个内部的网络里流通，那么就是一个相对范围内的局域网。</strong></p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>无线网络传输有不稳定的现象，比如频繁的移动设备或者距离太远或者中间有一些介质的干扰都会造成信号的紊乱。</p>
-<p>有线网络传输有链路本身不稳定或者网线离一些强电设备比较近，比如电源线、冰箱、电磁炉都会收到干扰</p>
-<blockquote>
-<p><strong>当设备之间进行数据传输时，中间的传输介质正好经过强电设备，此时就有可能导致数据传输出现问题，也就是数据传错了。</strong></p>
-</blockquote>
-</blockquote>
-<p><strong>OSI七层模型解析：</strong></p>
-<blockquote>
-<p>**<code>物理层的作用：</code>**去规范传输介质的标准（传输介质：设备与设备之间相连的网线或者光纤），比如 设备间要进行互联，中间要用一根网线，网线要做水晶头以及要按照什么样的顺序去做，这个标准是由物理层制定的，那么这就是物理层的功能 。</p>
-<blockquote>
-<p><strong>在物理层，当数据在传输的过程中出现了问题，就没必要再往下转发了，但是在物理层是没有检测机制的（其实就是网线无法提供检测机制），无法校验数据，无法判断数据该不该转发，所以下层解决不了的问题，交给上层。</strong></p>
-</blockquote>
-<p>**<code>数据链路层的作用：</code>**进行差错检测，但是不能纠错。比如：pc将数据发送到某个设备上，那么这个设备是可以进行校验的，通过校验，检查传输的过程中有没有产生错误的数据，若产生错误的数据，则直接将数据丢掉</p>
-<blockquote>
-<p><strong>数据传输过程中，会携带数据链路层的地址信息，叫做MAC地址，会进行相对应的数据封装以及数据的标识</strong></p>
-<p>**数据链路层的功能只能局限于一个小型的内部网络中，由MAC地址（标识）进行数据的转发，面向全世界转发数据是不能的，比如一个pc跨越很远的距离到达另一台pc是做不到的 ，所以数据链路层做不到就交给网络层进行处理 **</p>
-</blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230610020302114.png" alt="image-20230610020302114"></p>
-<p><strong>全局的概念：网络层也有一个地址信息（IP地址），这个地址信息的生效地点不是在一个小型的内部网络中，而是在报文传递的全部过程（全局范围内），也就是数据从源设备转发到到目的设备的过程，生效点具体在源设备和目的设备上</strong></p>
-<p><strong>链路的概念：pc到达目的地的过程中，要经过许多中间设备，但是每一台设备经过以后，都不会去改变现在的全局的地址信息 ，而每个设备与设备之间叫做链路，都是一个小型的地址范围，是会一直更换的，使用的是MAC地址</strong></p>
-<p><strong><code>网络层的作用：</code>实现ip地址间（主机到主机间）的通信</strong>，通过IP地址可以在全局的范围内唯一的定位一台设备，其次有相对应的路由功能（数据转发时，会提供相对应的路由，告诉你未来该从那去转发）</p>
-<blockquote>
-<p><strong><code>路由：你要去往目的地，这条路该怎么走</code></strong></p>
-<p>IP地址mac地址协同办公</p>
-<p><strong>网络层也没有纠错功能，所以交给传输层处理以及网络层无法实现对一个设备不同应用间的区分</strong></p>
-<blockquote>
-<p><strong>网络层无法实现对一个设备不同应用间的区分？</strong></p>
-<p><strong>比如：一个pc上同时运行了两个软件（QQ和微信），当两个软件分别向各自的服务器发送请求后，服务器回应到pc上，但是pc只有一个ip地址，ip地址仅仅只能标识这个设备在网络中的位置，但是不能够告诉别人我现在用的是什么应用，所以需要上层的传输层解决。</strong>**</p>
-</blockquote>
-</blockquote>
-<p><strong><code>传输层的作用：</code>实现端到端（设备间应用到应用）的通信</strong>，使用端口来区分应用和基于不同协议可能完成纠错</p>
-<blockquote>
-<p>比如：在本地的设备上给QQ和微信随机 分别起一个代号，当进行数据访问时，发送的请求，同时也会携带上代号传给服务器，服务器回应时，会根据代号（端口）找到对应的应用</p>
-</blockquote>
-<p>TCP：可靠传输协议（可以纠错）</p>
-<p>UDP：不可靠传输协议（无法纠错）</p>
-<blockquote>
-<p><strong><code>在传输层选择了某种可靠的传输协议，是可以完成纠错的</code></strong></p>
-</blockquote>
-<p>一个软件可以实现很多种不同的服务 </p>
-<blockquote>
-<p><strong>传输层可以定位到不同的应用，但是具体的应用服务是办不到的，没有办法进行区分，需要交给上一层会话层解决</strong></p>
-</blockquote>
-<blockquote>
-<p><strong><code>总结：实际上，我们作为网络工程师，更关心数据能不能到达对方设备上，至于数据到达对端之后，找那个应用软件，找那个应用软件中的具体哪个服务我们是不需要关心的，我们只关心网络中数据是否能够转发到对方设备上</code></strong></p>
-</blockquote>
-<p><strong><code>会话层的作用：</code>实现应用内不同服务进程和服务进程间的通信</strong></p>
-<blockquote>
-<p>基于应用内不同的服务是由软件工程师开发、设计以及定义的 </p>
-</blockquote>
-<p><strong><code>表示层的作用：负责数据的解码、编译</code></strong></p>
-<blockquote>
-<p>比如：两台<strong>不同的系统设备上</strong>的两个应用进行数据通信时，由于系统底层原理的实现是不一样的，所以需要通过表示层进行数据的解码和编译</p>
-</blockquote>
-<p><strong><code>应用层的作用：解决下面模型无法解决的问题，产生不同的数据，验证和加密数据</code></strong></p>
-<blockquote>
-<p><strong>比如：网络出现问题时，在微信上正好给朋友发信息，导致信息没有成功发送，需要自己手动点击红色感叹号，进行重新发送，这就是应用级别的纠错，像QQ和微信单对单的私聊来说，采用的形式就是UDP，因为在传输层没有纠错，最终交给应用层解决，</strong></p>
-</blockquote>
-</blockquote>
-<p><strong>TCP&#x2F;IP模型解析：</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230614021540924.png" alt="‘"></p>
-<h2 id="2、数据封装-传输介质"><a href="#2、数据封装-传输介质" class="headerlink" title="2、数据封装+传输介质"></a>2、数据封装+传输介质</h2><h3 id="数据传输的形式"><a href="#数据传输的形式" class="headerlink" title="数据传输的形式"></a><strong>数据传输的形式</strong></h3><blockquote>
-<p><strong>数据传输的形式：</strong></p>
-<ul>
-<li><p>电路交换</p>
-<blockquote>
-<p>缺点：电路交换的用户始终占用端到端的通信资源，其他用户就不能使用，宝贵的通信线路资源白白被浪费，导致线路传输效率很低</p>
-</blockquote>
-</li>
-<li><p>报文交换</p>
-<blockquote>
-<p>在数据之外，加上能够标识接受者以及发送者的信息</p>
-</blockquote>
-</li>
-<li><p><strong>分组交换</strong>（是目前使用最多的交换形式 ，也是最主流的交换形式）</p>
-<blockquote>
-<p>依然进行报文交换，不过分组交换将每个数据的大小进行限制</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<h3 id="数据的封装过程"><a href="#数据的封装过程" class="headerlink" title="数据的封装过程"></a><strong>数据的封装过程</strong></h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230616011804820.png" alt="image-20230616011804820"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230616012032256.png" alt="image-20230616012032256"></p>
-<blockquote>
-<p><strong><code>从上到下是封装，从下到上是解封装</code></strong></p>
-<p><strong>数据封装最终会抵达到物理层的网口（网卡），将数据转换为比特流，通过传输介质将数据（二进制形式的数据）推送出去</strong></p>
-<p><strong>发送端的网卡把磁盘中的数据转换成网线上的比特流或者电信号；对端的网卡收到比特流再转换成数据</strong></p>
-<p><strong>报头的作用：每层的作用是通过报头实现的</strong></p>
-<p><strong>数据链路层相对比较特殊，需要加报头（帧头）和报尾（帧尾）</strong></p>
-</blockquote>
-<h3 id="中间网络数据传输"><a href="#中间网络数据传输" class="headerlink" title="中间网络数据传输"></a><strong>中间网络数据传输</strong></h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230616023542653.png" alt="image-20230616023542653"></p>
-<blockquote>
-<p>S：交换机（switch）</p>
-<p>R：路由器（router）</p>
-<p><strong>交换机的权限最高到数据链路层，也就是工作在二层</strong></p>
-<p><strong>路由器的权限最高到网络层，也就是工作在三层</strong></p>
-</blockquote>
-<h3 id="数据的解封装过程"><a href="#数据的解封装过程" class="headerlink" title="数据的解封装过程"></a><strong>数据的解封装过程</strong></h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230616024948760.png" alt="image-20230616024948760"></p>
-<h3 id="简单网络的组成"><a href="#简单网络的组成" class="headerlink" title="简单网络的组成"></a>简单网络的组成</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230616173559647.png" alt="image-20230616173559647"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230616173340700.png" alt="image-20230616173340700"></p>
-<blockquote>
-<p>一个简单的网络必须具体三要素：</p>
-<ul>
-<li>网线</li>
-<li>网卡</li>
-<li>协议栈</li>
-</ul>
-</blockquote>
-<h3 id="常见传输介质"><a href="#常见传输介质" class="headerlink" title="常见传输介质"></a><strong>常见传输介质</strong></h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230616174153480.png" alt="image-20230616174153480"></p>
-<blockquote>
-<p><strong>传输介质的作用：</strong></p>
-<ul>
-<li>实现设备间的连接</li>
-<li>实现数据的传输</li>
-</ul>
-<p>网线 &#x3D; 双绞线</p>
-<p>双绞线的材质是铜</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230705011507442.png" alt="image-20230705011507442"></p>
-<p>一般情况下都是采用568B标准（568B和568A没有本质的区别）</p>
-<p>同轴电缆（现在已经不使用它组建一个网络了，已经成为历史，取而代之的是双绞线）的应用场景：比较老的有线电视、模拟视频监控</p>
-</blockquote>
-<blockquote>
-<p>冲突域：在一定的范围内，数据在发送&#x2F;接受的过程中，会产生数据的碰撞&#x2F;冲突</p>
-<p>一个共享型网络就是一个冲突域（我们需要用到一个叫CSMA&#x2F;CD的机制来进行冲突的避免）</p>
-<p>CSMA&#x2F;CD：载波侦听多路访问&#x2F;冲突检测技术（现在已经没有这个技术的使用场景了，已经被取代了）</p>
-<p>CSMA&#x2F;CD的几种工作模式：</p>
-<ul>
-<li>先听后发</li>
-<li>边发边听</li>
-<li>冲突停发</li>
-<li>随机延迟后重发</li>
-</ul>
-</blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230705011945227.png" alt="image-20230705011945227"></p>
-<blockquote>
-<p>10BASE-T：10表示传输速率、BASE表示数据传输的形式、T代表现在传输的介质是双绞线、F代表光纤</p>
-<p>总结：</p>
-<blockquote>
-<p><strong><code>对于双绞线我们主要记忆如下几个点：</code></strong></p>
-<ul>
-<li>双绞线的最长有效传输距离是100米</li>
-<li>双绞线的线序</li>
-<li>在以太网标准下，双绞线能够实现的最快传输速率是1000M&#x2F;S</li>
+<li>控制路由条目——<strong>在数据包转发路径上的三层设备上</strong>，通过路由策略，拒绝路由条目，从而确保数据包无法互通</li>
+<li>控制数据包转发——<strong>在数据包转发路径上的任何一个设备的接口下</strong>，调用专门的“流量控制工具”，比如 <strong><code>ACL</code></strong></li>
 </ul>
 </blockquote>
 </blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230705014033511.png" alt="image-20230705014033511"></p>
+<h3 id="什么是ACL"><a href="#什么是ACL" class="headerlink" title="什么是ACL"></a>什么是ACL</h3><blockquote>
+<p><strong>ACL的概述：</strong>ACL，是Access Control List的简写，中文名称叫做“ <strong><code>访问控制列表</code></strong> ”。</p>
+<p><strong>ACL的组成：</strong>包含ACL的名字（<strong>数字（ID）或者字符表示</strong>）+ 规则 + 规则号 + 动作 + 条件参数 + 通配符</p>
 <blockquote>
-<p>半双工 &#x3D; 对讲机</p>
-<p>全双工 &#x3D; 打电话</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817121647302.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817121826716.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817122515078.png"></p>
 </blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230705014702509.png" alt="image-20230705014702509"></p>
+<p><strong>ACL的类型：</strong></p>
 <blockquote>
-<p>光纤是通过光的折射代表光信号</p>
-<p>广域网更多使用的是光纤</p>
-</blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230705015638837.png" alt="image-20230705015638837"></p>
-<h2 id="3、数据链路层与MAC地址"><a href="#3、数据链路层与MAC地址" class="headerlink" title="3、数据链路层与MAC地址"></a>3、数据链路层与MAC地址</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230709213444804.png" alt="image-20230709213444804"></p>
-<blockquote>
-<p>如果数据进行封装时，基于E2或者802.3标准，此时我们称之为是一个以太网数据帧。</p>
-<p>E2（Ethernet2）和802.3（IEEE 802.3）作用：定义帧头和帧尾的格式。</p>
-<p>目前整个局域网中，以太网（有两种封装标准：E2和802.3）是唯一标准</p>
-<p>在个广域网中：PPP和HDLC作为两种封装标准 </p>
-<p><strong>注：</strong></p>
 <ul>
-<li><p>E2、802.3、PPP和HDLC都作为数据链路层的封装标准，只是在不同网络中，用到的封装标准不同。</p>
-</li>
-<li><p>在HCIA阶段中，广域网作为了解即可，局域网作为学习重点。</p>
-</li>
+<li><strong><code>基本ACL：</code><strong>编号范围：2000 — 2999，条件参数：源IP地址，</strong>匹配数据不精准</strong>。</li>
+<li><strong><code>高级ACL：</code><strong>编号范围：3000 — 3999，条件参数：五元组（源IP、目标IP、协议号、源端口、目标端口），</strong>匹配的数据更加精准</strong>。</li>
+<li><strong>二层ACL（极少使用）：</strong>编号范围：4000 — 4999，条件参数：源MAC、目标MAC、类型（<strong>E2或者IEEE802.3</strong>）</li>
+<li><strong>自反ACL：</strong>设备根据一个方向的ACL，可以自动创建出一个反方向的ACL（自反ACL），该ACL和原ACL的源IP地址和目的IP地址、源端口号和目的端口号完全相反。利用自反ACL，可以实现单向访问控制，比如只有当内网用户先访问了外网后才允许外网访问内网</li>
 </ul>
 </blockquote>
-<blockquote>
-<p>数据：对于下层的每个层级而言，上层所反馈或者传递给下层的信息，下层认为皆是数据。</p>
-</blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230711005503890.png" alt="image-20230711005503890"></p>
-<blockquote>
-<p>E2封装标准下的数据帧结构：</p>
-<ul>
-<li><p>FCS：帧校验序列</p>
-<blockquote>
-<p>会通过一个叫CRC循环冗余校验算法校验整体信息。</p>
-</blockquote>
-</li>
-<li><p>Type：类型</p>
-<blockquote>
-<p>用于标识上层的协议。</p>
-</blockquote>
-</li>
-<li><p>D.MAC：目的mac，接受者的mac信息</p>
-</li>
-<li><p>S.MAC：源mac，发送者的mac信息</p>
-</li>
-</ul>
-<p>mac地址 &#x3D; 物理地址 &#x3D; 网卡地址（每个设备出厂时，会烧录进网卡芯片中，出厂自带）</p>
-<p>每个网卡或三层网口都有一个 <strong>MAC 地址</strong>， MAC 地址是烧录到硬件上，因此也称为<strong>硬件地址</strong>。MAC 地址作为数据链路设备的地址标识符，需要保证网络中的每个 MAC 地址都是<strong>唯一</strong>的，才能正确识别到数据链路上的设备。</p>
-<p>E2封装完成后数据帧：最小为64B，最大为1518B</p>
-</blockquote>
-<blockquote>
-<p>发送者的动作：</p>
-<p>发送者填充源目mac信息，type字段（标识上层协议），以及CRC循环冗余检验，计算除了FCS字段外的其他字段的数值，将数值填充至FCS，信息都填充完毕之后，此时借助物理层，转变为二进制比特流，从链路中传递。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230711222132877.png" alt="image-20230711222132877"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230712002922122.png" alt="image-20230712002922122"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230712001313931.png" alt="image-20230712001313931"></p>
-<p>数据抵达接受端端口以后，接受者的动作：</p>
-<ol>
-<li>首先看目的MAC是否是自己的mac，如果不是丢弃，如果是，则进行下一步；</li>
-<li>将数据也进行CRC循环冗余校验，比对FCS里的字段里的数值，如果不同，则丢弃，如果相同，则进行下一步</li>
-<li>查看type字段，交由type字段标识的上层协议处理</li>
-<li>数据链路层工作结束</li>
-</ol>
-</blockquote>
-<blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230712000841061.png" alt="image-20230712000841061"></p>
-<p>MTU：最大传输单元（不包含数据链路层的封装，指的是网络层及以上的数据封装，我们称之为MTU，即在数据链路层里的DATA字段（数据）的最大存储容量），在802.3封装标准中，MTU的范围是38~1492字节，在E2封装标准中，MTU的范围是46 ~ 1500（<strong>注：MTU默认值是1500</strong>）</p>
-<blockquote>
-<p>在链路上，如果报文的MTU过大， 而链路所能承载的MTU值过小，则可能导致数据分片或者数据丢弃。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230712000436965.png" alt="image-20230712000436965"></p>
-<p>当一个设备收到数据帧，是通过上述的type或者length字段的数值判断使用了那个封装标准</p>
-</blockquote>
-<h2 id="4、MAC地址-网络层"><a href="#4、MAC地址-网络层" class="headerlink" title="4、MAC地址+网络层"></a>4、MAC地址+网络层</h2><h3 id="mac地址"><a href="#mac地址" class="headerlink" title="mac地址"></a>mac地址</h3><blockquote>
-<p>二进制（逢二进一）</p>
-<p>0&#x3D;0</p>
-<p>1&#x3D;1</p>
-<p>10&#x3D;2</p>
-<p>11&#x3D;3</p>
-<p>100&#x3D;4</p>
-<p>101&#x3D;5</p>
-<p>110&#x3D;6</p>
-<p>111&#x3D;7</p>
-<p>1000&#x3D;8</p>
-<p>1001&#x3D;9</p>
-<p>1010&#x3D;10</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230712223508088.png" alt="image-20230712223508088"></p>
-<blockquote>
-<p>Ox：用来标识16进制</p>
-</blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230712223027619.png" alt="image-20230712223027619"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230712225222350.png" alt="image-20230712225222350"></p>
-<blockquote>
-<p>二进制和十六进制之间的关系：1个16进制可以用4个二进制表示，1:4的关系</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>MAC地址的概念：</p>
-<ol>
-<li><p>单播：通信形式上，点对点，单对单的通信，类似与qq私聊。</p>
-<p>单播mac地址：从高位向低位（从左往右）第8位为0，且一定为0，其他任意。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230712233530730.png" alt="image-20230712233530730"></p>
-<p>数据封装时，源mac和目的mac都是单播mac，则为单播通信。（<strong>注：在网卡上的mac地址都是单播地址。</strong>）</p>
-</li>
-<li><p>组播：通信形式上，点对多点，单对多的通信，类似于qq群聊。</p>
-<p>组播mac地址：从高位向低位（从左往右）第8位为1，且一定为1，其他任意。</p>
-<p>数据封装时，因为组播代表的是一组的集合，面向一组的通信，此时组播mac不能成为数据的源地址，仅能充当目的地址。</p>
-</li>
-<li><p>广播：通信形式上，点对所有，单对所有的通信。广而播之&#x2F;强制的接受处理。</p>
-<p>数据封装时，因为广播代表的是所有人的集合，面向所有人的通信，此时广播mac不能成为数据的源地址，仅能充当目的地址。</p>
-<p>广播mac地址：从高位向低位48位全部为1，且一定为1。也可以表示成16进制全F。</p>
-</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>a：目的mac为单播mac</p>
-<p>b：目的mac为组播mac</p>
-<p>c：目的mac为广播mac</p>
-<p>发送者的动作：</p>
-<p>发送者填充源目mac信息，type字段（标识上层协议），以及CRC循环冗余检验，计算除了FCS字段外的其他字段的数值，将数值填充至FCS，信息都填充完毕之后，此时借助物理层，转变为二进制比特流，从链路中传递。</p>
-<p>a场景：</p>
-<p>单播数据抵达接受端端口以后，接受者的动作：</p>
-<ol>
-<li>首先看目的MAC是否是自己的mac，如果不是丢弃，如果是，则进行下一步；</li>
-<li>将数据也进行CRC循环冗余校验，比对FCS里的字段里的数值，如果不同，则丢弃，如果相同，则进行下一步</li>
-<li>查看type字段，交由type字段标识的上层协议处理</li>
-<li>数据链路层工作结束</li>
-</ol>
-<p>b场景：</p>
-<p>组播数据抵达接受端端口以后，接受者的动作：</p>
-<ol>
-<li>首先看目的MAC，查看自己本地是否加组，如果没加组丢弃，如果加组 ，则进行下一步；</li>
-<li>将数据也进行CRC循环冗余校验，比对FCS里的字段里的数值，如果不同，则丢弃，如果相同，则进行下一步</li>
-<li>查看type字段，交由type字段标识的上层协议处理</li>
-<li>数据链路层工作结束</li>
-</ol>
-<p>c场景：</p>
-<p>广播数据抵达接受端端口以后，接受者的动作：</p>
-<ol>
-<li>首先看目的MAC，如果是广播，则直接进行下一步；</li>
-<li>将数据也进行CRC循环冗余校验，比对FCS里的字段里的数值，如果不同，则丢弃，如果相同，则进行下一步</li>
-<li>查看type字段，交由type字段标识的上层协议处理</li>
-<li>数据链路层工作结束</li>
-</ol>
-</blockquote>
-<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230713003446514.png" alt="image-20230713003446514"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230713003828298.png" alt="image-20230713003828298"></p>
-<h2 id="5、VLAN"><a href="#5、VLAN" class="headerlink" title="5、VLAN"></a>5、VLAN</h2><p><strong>交换机原理：</strong></p>
-<blockquote>
-<p><strong><code>主机A想要访问主机B，通过子网掩码判断是否是同一网段，如果是，则主机A发送一条以广播形式的ARP请求包（源mac：A的mac地址；目mac：全F），交换机收到后，将ARP请求包里的目标 MAC 地址与交换机里的MAC 地址表进行匹配，发现并没有对应的匹配，交换机会通过自动学习，将端口收到的ARP请求包的源mac和端口号记录到mac地址表中并且将ARP请求包除了接受端口外的其他端口进行泛洪，主机B收到ARP包后，发现目的MAC为全F的广播包与自己有关系，拆开外层的目的MAC，发现内层的目的IP与自己的IP对应，于是主机B回复一条ARP应答包（源mac：B的mac地址；目mac：A的mac地址），交换机收到后，将端口收到的ARP应答包里的源MAC地址和端口号记录到mac地址表中，以单播的形式发送给主机A，主机A收到ARP应答包后，将B的MAC地址填充到数据帧的目的MAC中，完成数据的封装，就可以进行数据的转发通信了。</code></strong></p>
-</blockquote>
-<p><strong>交换的作用：</strong></p>
+<p><strong>ACL的作用：</strong>匹配感兴趣的数据包。</p>
+<p><strong>ACL的工作原理：</strong></p>
 <blockquote>
 <ol>
-<li>封装目的mac地址（没有目的mac地址是无法进行通信的）</li>
-<li>连接设备</li>
+<li>使用ACL在匹配数据包的过程中，会按照rule的号码从小到大依次匹配；</li>
+<li>如果能匹配成功，则后续的条目不再进行检查；</li>
+<li>如果匹配不成功，则继续匹配下面的rule；</li>
+<li>如果所有的rule都没有匹配成功，则执行ACL最后一个隐含的规则；</li>
+<li>如果acl和traffic-filter结合使用，acl最后隐含的规则是：允许所有；</li>
+<li>如果acl和其他工具（<strong>FTP、SSH、Telnet</strong>）结合在一起使用， acl 最后隐含的规则是：拒绝所有；</li>
 </ol>
+<blockquote>
+<p><strong>注：在配置acI规则的时候，默认最后一条到底是允许所有还是拒接所有， ACL默认规则对于不同业务模块的动作是不同。</strong></p>
+<blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817162005860.png" alt="image-20230817162005860"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817162024039.png" alt="image-20230817162024039"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817162055271.png" alt="image-20230817162055271"></p>
 </blockquote>
 <blockquote>
-<p>自动学习：</p>
-<p>记录端口收到数据的源mac和端口号</p>
-<p>收到单播数据帧，查看mac地址表，是否存在对应关系</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817162330312.png" alt="image-20230817162330312"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817162352748.png" alt="image-20230817162352748"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817162417130.png" alt="image-20230817162417130"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817162503445.png" alt="image-20230817162503445"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230817162534987.png" alt="image-20230817162534987"></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="ACL应用在哪里"><a href="#ACL应用在哪里" class="headerlink" title="ACL应用在哪里"></a>ACL应用在哪里</h3><blockquote>
 <ul>
-<li>若不存在，则泛洪（未知单播数据帧——BUM）</li>
-<li>若存在，则转发</li>
-</ul>
-<p>报文学习 &#x3D; 动态mac地址表 &#x3D; 300s &#x3D; 老化时间 &#x3D; 5分钟</p>
-<p>ARP表 &#x3D; 20分钟</p>
-<ul>
-<li><p>IP和MAC的对应关系</p>
-</li>
-<li><p>作用：用于通信设备进行数据封装</p>
-</li>
-<li><p>存在：任何要封装数据的设备</p>
-</li>
-</ul>
-<p>MAC地址表 &#x3D; 5分钟</p>
-<ul>
-<li><p>mac地址和端口的对应关系</p>
-</li>
-<li><p>作用：用于交换机中转发数据</p>
-</li>
-<li><p>存在：交换机中</p>
-</li>
-</ul>
-<p>接受方向（pc发送数据给交换机的某个端口，该端口我们称为接受方向）：不会进行tag剥离&#x2F;弹出</p>
-<p>发送方向（交换机从某个端口将数据转发出去，该端口我们称为发送方向）：会进行tag剥离&#x2F;弹出</p>
-<p>交换机内部处理的都是带tag的数据帧</p>
-<p>链路类型&#x2F;接口类型：</p>
-<p>access、trunk、hybrid</p>
-<p>PVID &#x3D; 缺省vlan &#x3D;交换机所有接口默认属于vlan 1 &#x3D; 接口 vlan</p>
-<p>三种接口类型：</p>
-<ol>
-<li><p>access——接入类型</p>
-<blockquote>
-<ul>
-<li>不带vlan标签的数据，“空白”的数据帧</li>
-<li>一个access接口只能属于一个vlan</li>
-<li>对于交换机的泛洪：会向除了接受端口之外，其他能够转发本vlan的端口进行泛洪。</li>
+<li>基本ACL由于匹配数据不精准，所以调用在距离目标设备近的端口上</li>
+<li>高级ACL由于匹配数据精准，所以调用在距离源设备近的端口上</li>
 </ul>
 </blockquote>
-</li>
-<li><p>trunk——干道类型</p>
-<blockquote>
-<p>列表：vlan允许通过的列表   &#x2F;&#x2F; 通过的前提：保证存在该vlan</p>
-<p>特点：同时允许多个不同vlan通过</p>
-</blockquote>
-</li>
-<li><p>hybrid——杂合类型&#x2F;混杂&#x2F;混合</p>
-</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>通过access和trunk模式可以实现两种需求：</p>
-<ol>
-<li><p>通过access能实现同交换机不同vlan不同</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715180019869.png" alt="image-20230715180019869"></p>
-</li>
-<li><p>通过access和trunk相结合能实现不同交换机同vlan互通</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715175251769.png" alt="image-20230715175251769"></p>
-</li>
-</ol>
-</blockquote>
-<blockquote>
-<p><strong><code>VLAN的形成的最根本原因就是缩小广播域，目的是提高安全性，当没有使用VLAN划分时，不管是相同网段之间或者不同网段之间都属于同一个广播域，不同网段是不能隔离广播域的</code></strong></p>
-</blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230716010010068.png" alt="image-20230716010010068"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230716011836181.png" alt="image-20230716011836181"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230716012854085.png" alt="image-20230716012854085"></p>
-<h2 id="6、DHCP原理与配置"><a href="#6、DHCP原理与配置" class="headerlink" title="6、DHCP原理与配置"></a>6、DHCP原理与配置</h2><blockquote>
-<p>DHCP作用：为主机分配地址参数</p>
-<p>ipconfig &#x2F;all：查设备上所有的网卡命令</p>
-<p>网络地址（网段）是通过ip地址配合子网掩码来判断的</p>
-<p>默认网关：跨网段时使用默认网关，负责接受跨网段的数据转发</p>
-<p>DNS服务器：提过域名解析服务（DNS就是把域名解析为IP地址，提供我们上网，我们能够上网最终是找到IP地址），当一台pc与 DNS服务器对应时，全球的DNS服务器都会同步</p>
-<p>当一台pc通过目的IP访问百度之前时，不是直接访问百度的服务器，而是先访问DNS服务器进行域名解析，然后再访问百度的服务器</p>
-</blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230714105435271.png" alt="image-20230714105435271"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230714105904826.png" alt="image-20230714105904826"></p>
-<blockquote>
-<ol>
-<li>客户端以广播的形式发送一个DHCP发现报文（DHCP DISCOVER）</li>
-</ol>
-<p>​          DHCP发现报文的源目IP：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230714110414730.png" alt="image-20230714110414730"></p>
-<ol start="2">
-<li><p>DHCP服务器以单播或者广播的形式回复一个DHCP响应报文（DHCP OFFER）</p>
-<p><strong>注：华为使用单播；思科和Windows使用广播</strong></p>
-</li>
-<li><p>客户端以广播的形式发送一个DHCP请求确认报文（DHCP REQUEST）</p>
-<p><strong>注：当租期更新时，发送的DHCP REQUEST报文是单播的形式</strong></p>
-</li>
-<li><p>DHCP服务器以广播或者单播的形式回复一个确认响应报文</p>
-</li>
-</ol>
-</blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230714112514048.png" alt="image-20230714112514048"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230714113408698.png" alt="image-20230714113408698"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230714113513461.png" alt="image-20230714113513461"></p>
-<h2 id="7、NAT"><a href="#7、NAT" class="headerlink" title="7、NAT"></a>7、NAT</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715122524971.png" alt="image-20230715122524971"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715150728280.png" alt="image-20230715150728280"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715150758199.png" alt="image-20230715150758199"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715145941421.png" alt="image-20230715145941421"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715150214066.png" alt="image-20230715150214066"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715150631723.png" alt="image-20230715150631723"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715151337708.png" alt="image-20230715151337708"></p>
-<h2 id="8、PPPOE"><a href="#8、PPPOE" class="headerlink" title="8、PPPOE"></a>8、PPPOE</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715162325845.png" alt="image-20230715162325845"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715163058895.png" alt="image-20230715163058895"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715163125254.png" alt="image-20230715163125254"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715163202594.png" alt="image-20230715163202594"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715163336990.png" alt="image-20230715163336990"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715163352571.png" alt="image-20230715163352571"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715163409227.png" alt="image-20230715163409227"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230715163426475.png" alt="image-20230715163426475"></p>
-<h2 id="9、ensp中的基本命令"><a href="#9、ensp中的基本命令" class="headerlink" title="9、ensp中的基本命令"></a>9、ensp中的基本命令</h2><blockquote>
-<p>？&#x3D; 当前可以配置的命令 </p>
-<p>system-view &#x3D; 从用户视图到系统视图 </p>
-<p>Tab &#x3D; 输入命令时，按tab自动补全 以该字母为开头的命令 </p>
-<p>回车 &#x3D; 输入一个命令，想要生效，敲回车 </p>
-<p>Quit &#x3D; 从当前视图返回上一个视图 </p>
-<p>简写 &#x3D; 如果此时该命令唯一，此时可以使用简写 </p>
-<p>Ctrl+Z &#x3D; 从当前视图直接退回用户视图 </p>
-<p>Sysname &#x3D; 改设备名 </p>
-<p>Brief &#x3D; 摘要&#x2F;重点 </p>
-<p>display ip interface brief &#x3D; 查看接口地址以及状态的信息</p>
-<p>display this &#x3D; 查看当前视图下的配置</p>
-<p>interface GigabitEthernet 0&#x2F;0&#x2F;1 &#x3D; 进入设备接口</p>
-<p>Undo &#x3D; 删除命令&#x2F;关闭功能</p>
-<p>display current-configuration &#x3D; 查看设备当前配置 -dis cu</p>
-<p>Save &#x3D; 保存配置</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230716114728116.png" alt="image-20230716114728116"></p>
-<p>上述视图中：</p>
-<ul>
-<li>配置地址时，使用空格键实现两个字节之间的切换</li>
-<li>使用tab键实现换行</li>
-</ul>
-</blockquote>
-<h2 id="10、设备管理（对设备进行命令配置）"><a href="#10、设备管理（对设备进行命令配置）" class="headerlink" title="10、设备管理（对设备进行命令配置）"></a>10、设备管理（对设备进行命令配置）</h2><blockquote>
-<p>设备管理分为三种：</p>
-<ol>
-<li><p>通过PC的USB接口与设备的console接口连接，实现对设备的本地管理（对设备进行命令配置）</p>
-</li>
-<li><p>通过telnet，实现对远程设备的管理</p>
-<blockquote>
-<p>telnet分为两种模式：</p>
-<ol>
-<li>基于无用户的密码登录模式，只需要设置密码，通过密码登录实现对远程设备的管理</li>
-<li>基于用户的密码登录模式，需要设置用户名和密码，通过用户名和密码登录实现对远程设备的管理</li>
-</ol>
-<p><strong>注：telnet并不安全，因为在链路上传输的是明文，容易被别人抓包，获取到密码</strong></p>
-</blockquote>
-</li>
-<li><p>通过SSH，实现对远程设备的管理，比telnet安全</p>
-</li>
-</ol>
-</blockquote>
-<h2 id="11、路由"><a href="#11、路由" class="headerlink" title="11、路由"></a>11、路由</h2><blockquote>
-<p>路由表：路由器寻址转发时查询路由表，根据路由进行具体的转发</p>
-<p>路由表的形成：</p>
-<ol>
-<li><p>直连路由（direct）</p>
-<blockquote>
-<ul>
-<li><p>是根据本网络的直连的接口信息产生的</p>
-<p>配置了接口地址后会产生网络地址+定向广播地址+当前接口的网关地址（主机路由，用于未来访问本设备时，进行转发）信息</p>
-</li>
-<li><p>接口处于up状态 [物理状态&#x3D;连接设备通电]  以及配置IP地址</p>
-</li>
-<li><p>接口物理状态为up，则直连路由存在；物理状态为down，则直连路由不存在</p>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p>静态路由</p>
-</li>
-<li><p>动态路由</p>
-</li>
-</ol>
-<p>本地广播与定向广播的区别：</p>
-<ul>
-<li>本地广播地址：全F</li>
-<li>定向广播地址：主机号为全1，比如：12.3.3.255（掩码为24）</li>
-<li>定向广播能在同网段转发，在不同网段不能转发</li>
-<li>本地广播：能在相同和不同网段转发</li>
-<li>路由器隔离本地广播，不能隔离定向广播</li>
-</ul>
-</blockquote>
-<blockquote>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230716175718454.png" alt="image-20230716175718454"></p>
-<p><strong>路由表参数：</strong></p>
-<p>协议（proto）：标识前方的目的网络是通过什么协议形成的。</p>
-<p>优先级（pre）：代表形成路由的协议的优先级数值。</p>
-<p>开销值（cost）：代表该路由协议形成此路由时候的开销 - [不同的路由协议计算方式不一样]</p>
-<p>下一跳（plags nexthop）：数据离开本路由器需要抵达的地址</p>
-<p>出接口（interface）：去往下一跳地址，要从本地哪个接口发出去 - 接口编号。</p>
-<p><strong>路由的加表：</strong></p>
-<p>如果目的网络及掩码信息不一致，则都会加表；如果一致，才会触发比较。</p>
-<p>路由器选择最优的路由加入到路由表中 &gt; 最优加表 &#x3D; 如何衡量最优呢？</p>
-<p>1.比较形成路由的优先级数值，越小越优。</p>
-<p>2.如果优先级相同的情况下，比较开销值，越小越优。</p>
-<p>3.如果cost相同的情况下，此时多条路由则都会加表 &#x3D;&#x3D; <strong>等价路由</strong></p>
-<p>开销值的比较仅仅可以在同一协议下比较，不同协议由于计算开销值的方式不同，所以不具备比较能力。</p>
-<p>直连路由或者静态路由的cost值都为0</p>
-<p><strong>静态路由：</strong>ip route-static 目的网段 + 目的网段掩码 + 下一跳IP地址</p>
-<p><strong>路由的查表原则：</strong>最长掩码匹配原则</p>
-<p>本地有多个匹配的路由，会按照掩码最长的转发。</p>
-<p>如果有一条路由，目的地和掩码全部为0，则代表<strong>默认路由</strong>（缺省路由），匹配所有IP地址。</p>
-<p>注意：该路由掩码为0，则为匹配顺序最劣的路由，本地无路由可以匹配，才会考虑默认。</p>
-<p><strong>静态路由加表原则：</strong></p>
-<p>保证下一跳地址能够顺利通过某个出接口抵达即可 —— 下一跳可达。</p>
-<p>如何衡量下一跳是否可达，看本地是否有去往目的网段的路由。</p>
-<p>路由器转发数据时，源目MAC会重新封装，以出接口的mac为源mac，下一跳的mac为目的mac。</p>
-<p>设备是否能够实现通信：看本设备是否有去往目的网段的路由，有则转发，无则不转发。</p>
-</blockquote>
-<h2 id="12、ICMP"><a href="#12、ICMP" class="headerlink" title="12、ICMP"></a>12、ICMP</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/image-20230718214239627.png" alt="image-20230718214239627"></p>
-<h2 id="13、FTP传输文件"><a href="#13、FTP传输文件" class="headerlink" title="13、FTP传输文件"></a>13、FTP传输文件</h2><blockquote>
-<p>传输工作：</p>
-<ol>
-<li><p>客户端找服务器建立tcp连接（控制连接）</p>
-<p>控制连接：</p>
-<ul>
-<li>控制连接中不传输文件</li>
-<li>控制连接目的是协商一些双方的约束</li>
-</ul>
-</li>
-<li><p>在控制连接的指导下建立数据连接，才能传输文件（业务数据）；</p>
-<p>数据连接可以是主动模式</p>
-<ul>
-<li>服务器主动找客户端建立数据连接</li>
-</ul>
-<p>数据连接可以是被动模式</p>
-<ul>
-<li>客户端主动找服务器建立连接</li>
-</ul>
-</li>
-<li><p>文件传输完毕，断开数据连接和控制连接</p>
-</li>
-</ol>
-</blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">燃烧的炸弹猫</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/4.html">http://example.com/posts/4.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">燃烧的炸弹猫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88/">网络工程师</a><a class="post-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/">知识笔记</a></div><div class="post_share"><div class="social-share" data-image="https://img1.imgtp.com/2023/07/19/D6j0fTJu.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/5.html" title="ACL"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.imgtp.com/2023/07/19/D6j0fTJu.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ACL</div></div></a></div><div class="next-post pull-right"><a href="/posts/3.html" title="markdown语法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.imgtp.com/2023/06/25/WHInCax4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">markdown语法</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/5.html" title="ACL"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.imgtp.com/2023/07/19/D6j0fTJu.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-20</div><div class="title">ACL</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.imgtp.com/2023/06/22/ExfAMpG5.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">燃烧的炸弹猫</div><div class="author-info__description">来自一个爱记录学习和生活的小赵同学</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ZHDBurning"><i class="fab fa-github"></i><span>前往小家..</span></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/ZHDBurning" target="_blank" title="Github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-github"></use></svg></a><a class="social-icon faa-parent animated-hover" href="/assets/weixin.png" target="_blank" title="微信"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-weixin"></use></svg></a><a class="social-icon faa-parent animated-hover" href="/assets/qq.png" target="_blank" title="qq"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-qq"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><a class="faa-parent animated-hover"><svg class="faa-tada icon" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-xinwengonggao"></use></svg></a><span>公告栏</span></div><div class="announcement_content">欢迎来到我的博客, 博客还在建设中，希望你能从中有所收获, 这将是我的荣幸</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E7%BD%91%E7%BB%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">1、网络的基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85-%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8"><span class="toc-text">2、数据封装+传输介质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E7%9A%84%E5%BD%A2%E5%BC%8F"><span class="toc-text">数据传输的形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%B0%81%E8%A3%85%E8%BF%87%E7%A8%8B"><span class="toc-text">数据的封装过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="toc-text">中间网络数据传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E5%B0%81%E8%A3%85%E8%BF%87%E7%A8%8B"><span class="toc-text">数据的解封装过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">简单网络的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8"><span class="toc-text">常见传输介质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E4%B8%8EMAC%E5%9C%B0%E5%9D%80"><span class="toc-text">3、数据链路层与MAC地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81MAC%E5%9C%B0%E5%9D%80-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-text">4、MAC地址+网络层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mac%E5%9C%B0%E5%9D%80"><span class="toc-text">mac地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-text">网络层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81VLAN"><span class="toc-text">5、VLAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81DHCP%E5%8E%9F%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">6、DHCP原理与配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81NAT"><span class="toc-text">7、NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E3%80%81PPPOE"><span class="toc-text">8、PPPOE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9%E3%80%81ensp%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-text">9、ensp中的基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E3%80%81%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%EF%BC%88%E5%AF%B9%E8%AE%BE%E5%A4%87%E8%BF%9B%E8%A1%8C%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE%EF%BC%89"><span class="toc-text">10、设备管理（对设备进行命令配置）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11%E3%80%81%E8%B7%AF%E7%94%B1"><span class="toc-text">11、路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12%E3%80%81ICMP"><span class="toc-text">12、ICMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13%E3%80%81FTP%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6"><span class="toc-text">13、FTP传输文件</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 燃烧的炸弹猫</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">燃烧的炸弹猫</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/4.html">http://example.com/posts/4.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">燃烧的炸弹猫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/">知识笔记</a><a class="post-meta__tags" href="/tags/ACL/">ACL</a><a class="post-meta__tags" href="/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%88%97%E8%A1%A8/">访问控制列表</a></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/654b439fc458853aef5ccb19.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/3.html" title="markdown语法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic.imgdb.cn/item/654b4343c458853aef5b6c92.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">markdown语法</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic.imgdb.cn/item/654b452cc458853aef60e7d7.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">燃烧的炸弹猫</div><div class="author-info__description">来自一个爱记录学习和生活的小赵同学</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ZHDBurning"><i class="fab fa-github"></i><span>前往小家..</span></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/ZHDBurning" target="_blank" title="Github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-github"></use></svg></a><a class="social-icon faa-parent animated-hover" href="/assets/weixin.png" target="_blank" title="微信"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-weixin"></use></svg></a><a class="social-icon faa-parent animated-hover" href="/assets/qq.png" target="_blank" title="qq"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-qq"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><a class="faa-parent animated-hover"><svg class="faa-tada icon" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-xinwengonggao"></use></svg></a><span>公告栏</span></div><div class="announcement_content">欢迎来到我的博客, 博客还在建设中，希望你能从中有所收获, 这将是我的荣幸</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ACL"><span class="toc-text">ACL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8ACL"><span class="toc-text">为什么使用ACL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFACL"><span class="toc-text">什么是ACL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ACL%E5%BA%94%E7%94%A8%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="toc-text">ACL应用在哪里</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 燃烧的炸弹猫</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
   if (typeof pangu === 'object') pangu.autoSpacingPage()
   else {
     getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
@@ -804,23 +226,7 @@ function panguInit () {
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script src="//at.alicdn.com/t/c/font_4135809_sbdtxij50w.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__zoomIn');
-    arr[i].setAttribute('data-wow-duration', '2s');
-    arr[i].setAttribute('data-wow-delay', '1s');
-    arr[i].setAttribute('data-wow-offset', '100');
-    arr[i].setAttribute('data-wow-iteration', '1');
-  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__zoomIn');
-    arr[i].setAttribute('data-wow-duration', '');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script data-pjax>
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script src="//at.alicdn.com/t/c/font_4135809_sbdtxij50w.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
   function butterfly_footer_beautify_injector_config(){
     var parent_div_git = document.getElementById('footer-wrap');
     var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
@@ -844,4 +250,20 @@ for(var i = 0;i<arr.length;i++){
   else if (epage === cpage){
     butterfly_footer_beautify_injector_config();
   }
-  </script><script async src="/js/runtime.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
+  </script><script async src="/js/runtime.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
